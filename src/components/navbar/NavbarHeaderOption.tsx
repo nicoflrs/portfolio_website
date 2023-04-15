@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Link } from "gatsby";
 import { Typography } from "@mui/material";
 
 interface NavbarHeaderOption {
@@ -6,6 +7,7 @@ interface NavbarHeaderOption {
 }
 
 const NavbarHeaderOption: React.FC<NavbarHeaderOption> = ({ headerOption }) => (
+  // <Link to={`/${headerOption.toLowerCase()}`}>
   <Typography
     sx={{
       height: "100%",
@@ -18,6 +20,7 @@ const NavbarHeaderOption: React.FC<NavbarHeaderOption> = ({ headerOption }) => (
   >
     {headerOption}
   </Typography>
+  // </Link>
 );
 
 export default NavbarHeaderOption;

@@ -1,59 +1,16 @@
 import React from "react";
-import "./layout.css";
+import "../styles/layout.css";
 import Navbar from "./navbar/Navbar";
 
-const Layout: React.FC = () => {
+interface LayoutProps {
+  children: React.ReactNode;
+}
+
+const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <>
       <Navbar />
-      <div
-        style={{
-          height: "500px",
-          color: "red",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          borderStyle: "solid",
-        }}
-      >
-        ABOUT ME SECTION! *in progress*
-      </div>
-      <div
-        style={{
-          height: "500px",
-          color: "red",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          borderStyle: "solid",
-        }}
-      >
-        EXPERIENCE SECTION! *in progress*
-      </div>
-      <div
-        style={{
-          height: "500px",
-          color: "red",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          borderStyle: "solid",
-        }}
-      >
-        WORK SECTION! *in progress*
-      </div>
-      <div
-        style={{
-          height: "500px",
-          color: "red",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          borderStyle: "solid",
-        }}
-      >
-        CONTACT SECTION! *in progress*
-      </div>
+      {children}
     </>
   );
 };
