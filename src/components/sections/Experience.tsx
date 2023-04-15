@@ -9,7 +9,6 @@ const Experience: React.FC = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        borderStyle: "solid",
       }}
     >
       EXPERIENCE SECTION! *in progress*

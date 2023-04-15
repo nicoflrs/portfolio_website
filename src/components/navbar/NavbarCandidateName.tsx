@@ -6,7 +6,7 @@ const NavbarCandidateName: React.FC = () => (
   <Typography
     sx={{
       height: "100%",
-      color: "red",
+      color: "white",
       display: "flex",
       alignItems: "center",
       paddingLeft: "30px",

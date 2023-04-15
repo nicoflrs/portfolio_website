@@ -9,7 +9,6 @@ const About: React.FC = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        borderStyle: "solid",
       }}
     >
       ABOUT ME SECTION! *in progress*

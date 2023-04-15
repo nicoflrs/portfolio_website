@@ -9,7 +9,6 @@ const Work: React.FC = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        borderStyle: "solid",
       }}
     >
       WORK SECTION! *in progress*

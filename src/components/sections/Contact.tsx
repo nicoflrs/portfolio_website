@@ -9,7 +9,6 @@ const Contact: React.FC = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        borderStyle: "solid",
       }}
     >
       CONTACT SECTION! *in progress*

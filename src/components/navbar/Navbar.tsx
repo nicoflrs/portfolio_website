@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
         top: 0,
         display: "flex",
         visibility: isHidden ? "hidden" : "visible",
-        backgroundColor: "rgba(10, 25, 47, 0.85)",
+        boxShadow: "0px 15px 30px -30px",
         transition: "0.5s ease-in-out",
         opacity: opacity,
       }}
