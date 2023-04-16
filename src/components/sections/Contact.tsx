@@ -11,7 +11,7 @@ const Contact: React.FC = () => {
         justifyContent: "center",
       }}
     >
-      CONTACT SECTION! *in progress*
+      <h1 id="contact">CONTACT SECTION! *in progress*</h1>
     </div>
   );
 };

@@ -11,7 +11,7 @@ const About: React.FC = () => {
         justifyContent: "center",
       }}
     >
-      ABOUT ME SECTION! *in progress*
+      <h1 id="about">ABOUT ME SECTION! *in progress*</h1>
     </div>
   );
 };

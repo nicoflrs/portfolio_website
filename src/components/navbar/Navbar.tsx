@@ -10,12 +10,20 @@ const Navbar: React.FC = () => {
   const [isHidden, setIsHidden] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [opacity, setOpacity] = useState(1);
+  const [backgroundColor, setBackgroundColor] = useState("inherit");
+  const [boxShadow, setBoxShadow] = useState("0px 0px");
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
       const isVisible = prevScrollPos > currentScrollPos;
       !isVisible ? setOpacity(0) : setOpacity(1);
+      currentScrollPos === 0
+        ? setBackgroundColor("inherit")
+        : setBackgroundColor("#0F1E40");
+      currentScrollPos === 0
+        ? setBoxShadow("0px 0px")
+        : setBoxShadow("0px 15px 30px -30px");
       setIsHidden(!isVisible);
       setPrevScrollPos(currentScrollPos);
     };
@@ -34,9 +42,10 @@ const Navbar: React.FC = () => {
         top: 0,
         display: "flex",
         visibility: isHidden ? "hidden" : "visible",
-        boxShadow: "0px 15px 30px -30px",
+        boxShadow: boxShadow,
         transition: "0.5s ease-in-out",
         opacity: opacity,
+        backgroundColor: backgroundColor,
       }}
     >
       <Box

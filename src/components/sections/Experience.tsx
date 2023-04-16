@@ -11,7 +11,7 @@ const Experience: React.FC = () => {
         justifyContent: "center",
       }}
     >
-      EXPERIENCE SECTION! *in progress*
+      <h1 id="experience">EXPERIENCE SECTION! *in progress*</h1>
     </div>
   );
 };

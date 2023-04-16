@@ -16,7 +16,7 @@ const NavbarHeaderOption: React.FC<NavbarHeaderOption> = ({ headerOption }) => (
       fontSize: "18px",
     }}
   >
-    {headerOption}
+    <a href={`#${headerOption.toLowerCase()}`}>{headerOption}</a>
   </Typography>
 );
 

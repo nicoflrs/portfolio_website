@@ -11,7 +11,7 @@ const Work: React.FC = () => {
         justifyContent: "center",
       }}
     >
-      WORK SECTION! *in progress*
+      <h1 id="work">WORK SECTION! *in progress*</h1>
     </div>
   );
 };
