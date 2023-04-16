@@ -18,4 +18,4 @@ const IndexPage: React.FC = () => {
 };
 
 export default IndexPage;
-export const Head: HeadFC = () => <title>Portfolio | Nico</title>;
+export const Head: HeadFC = () => <title>Portfolio | Nico Flores</title>;

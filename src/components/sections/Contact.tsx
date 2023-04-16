@@ -4,7 +4,7 @@ const Contact: React.FC = () => {
   return (
     <div
       style={{
-        height: "500px",
+        height: "850px",
         color: "red",
         display: "flex",
         alignItems: "center",
