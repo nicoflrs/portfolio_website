@@ -60,7 +60,7 @@ const About: React.FC = () => {
                 cutting-edge technology, optimization, and intuitive UX.
               </Typography>
             </div>
-            <div style={{ width: "100%", height: "100%" }}>
+            <div style={{ width: "100%", height: "100%", paddingTop: "10px" }}>
               <Typography
                 sx={{
                   color: "white",
@@ -71,7 +71,7 @@ const About: React.FC = () => {
                 various clients.
               </Typography>
             </div>
-            <div style={{ width: "100%", height: "100%" }}>
+            <div style={{ width: "100%", height: "100%", paddingTop: "10px" }}>
               <div>
                 <Typography
                   sx={{
@@ -125,9 +125,10 @@ const About: React.FC = () => {
               display: "flex",
               alignItems: "baseline",
               justifyContent: "center",
+              paddingLeft: "15px"
             }}
           >
-            <img src={profile} width="60%" height="45%"></img>
+            <img src={profile} width={300} height={300}></img>
           </div>
         </div>
       </div>
