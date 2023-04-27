@@ -17,7 +17,7 @@ const About: React.FC = () => {
       <div
         style={{
           height: "75%",
-          width: "50%",
+          width: "750px",
         }}
       >
         <div
@@ -33,11 +33,12 @@ const About: React.FC = () => {
               color: "white",
               fontWeight: 700,
               fontSize: "30px",
+              paddingRight: "15px"
             }}
           >
             About Me
           </Typography>
-          <div style={{ borderBottom: "1px solid white", width: "41vw" }}></div>
+          <div style={{ borderBottom: "1px solid white", width: "41vw", flex: 1 }}></div>
         </div>
         <div
           style={{
@@ -124,7 +125,7 @@ const About: React.FC = () => {
             style={{
               display: "flex",
               alignItems: "baseline",
-              justifyContent: "center",
+              justifyContent: "flex-end",
               paddingLeft: "15px"
             }}
           >
