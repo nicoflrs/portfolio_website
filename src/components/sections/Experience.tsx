@@ -1,4 +1,5 @@
 import * as React from "react";
+import { Typography } from "@mui/material";
 
 const Experience: React.FC = () => {
   return (
@@ -11,7 +12,33 @@ const Experience: React.FC = () => {
         justifyContent: "center",
       }}
     >
-      <h1 id="experience">EXPERIENCE SECTION! *in progress*</h1>
+      <div
+        style={{
+          height: "75%",
+          width: "750px",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+          }}
+        >
+          <Typography
+            sx={{
+              top: "0",
+              color: "white",
+              fontWeight: 700,
+              fontSize: "30px",
+              paddingRight: "15px"
+            }}
+          >
+            Where I've Worked
+          </Typography>
+          <div style={{ borderBottom: "1px solid white", flex: 1 }}></div>
+        </div>
+      </div>
     </div>
   );
 };

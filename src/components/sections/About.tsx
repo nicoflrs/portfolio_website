@@ -38,7 +38,7 @@ const About: React.FC = () => {
           >
             About Me
           </Typography>
-          <div style={{ borderBottom: "1px solid white", width: "41vw", flex: 1 }}></div>
+          <div style={{ borderBottom: "1px solid white", flex: 1 }}></div>
         </div>
         <div
           style={{
