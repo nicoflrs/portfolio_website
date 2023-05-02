@@ -33,7 +33,7 @@ const About: React.FC = () => {
               color: "white",
               fontWeight: 700,
               fontSize: "30px",
-              paddingRight: "15px"
+              paddingRight: "15px",
             }}
           >
             About Me
@@ -126,7 +126,7 @@ const About: React.FC = () => {
               display: "flex",
               alignItems: "baseline",
               justifyContent: "flex-end",
-              paddingLeft: "15px"
+              paddingLeft: "15px",
             }}
           >
             <img src={profile} width={300} height={300}></img>

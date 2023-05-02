@@ -46,6 +46,7 @@ const Navbar: React.FC = () => {
         transition: "0.5s ease-in-out",
         opacity: opacity,
         backgroundColor: backgroundColor,
+        zIndex: 100000000,
       }}
     >
       <Box
