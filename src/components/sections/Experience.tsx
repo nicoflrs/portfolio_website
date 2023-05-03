@@ -1,9 +1,17 @@
 import * as React from "react";
 import { useState } from "react";
 import { Typography } from "@mui/material";
+import Bullets from "../bullets/Bullets";
 
-const Experience: React.FC = () => {
+interface ExperienceProps {
+  company: string;
+}
+
+const Experience: React.FC<ExperienceProps> = () => {
   const [top, setTop] = useState("12px");
+  const [opacity, setOpacity] = useState(0);
+  const [company, setCompany] = useState("Arcules");
+
   return (
     <div
       id="experience"
@@ -43,10 +51,10 @@ const Experience: React.FC = () => {
         </div>
         <div
           style={{
-            height: "100%",
+            height: "50%",
             width: "100%",
             display: "grid",
-            gridTemplateColumns: "1fr 1fr",
+            gridTemplateColumns: "1fr 2fr",
           }}
         >
           <div
@@ -55,10 +63,10 @@ const Experience: React.FC = () => {
               flexDirection: "column",
             }}
           >
-            <div style={{ flex: "2 1 10%" }}></div>
+            <div style={{ flex: "2 1 15%" }}></div>
             <div
               style={{
-                flex: "1",
+                flex: "1 1 10%",
                 borderLeft: "1px solid white",
                 position: "relative",
               }}
@@ -83,10 +91,14 @@ const Experience: React.FC = () => {
                   alignItems: "flex-start",
                   marginLeft: "20px",
                   fontWeight: 700,
-                  fontSize: "25px",
+                  fontSize: "24px",
                   cursor: "pointer",
                 }}
-                onClick={() => setTop("12px")}
+                onClick={() => {
+                  setOpacity(0);
+                  setTop("12px");
+                  setCompany("Arcules");
+                }}
               >
                 Arcules
               </Typography>
@@ -99,17 +111,41 @@ const Experience: React.FC = () => {
                   alignItems: "flex-end",
                   marginLeft: "20px",
                   fontWeight: 700,
-                  fontSize: "25px",
+                  fontSize: "24px",
                   cursor: "pointer",
                 }}
-                onClick={() => setTop("77px")}
+                onClick={() => {
+                  setOpacity(0);
+                  setTop("62px");
+                  setCompany("PennyMac");
+                }}
               >
                 PennyMac
               </Typography>
             </div>
             <div style={{ flex: "2 1 10%" }}></div>
           </div>
-          <div></div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <div
+              style={{
+                backgroundColor: "hsla(180, 1%, 29%, 1)",
+                width: "585px",
+                borderRadius: "25px",
+              }}
+            >
+              <Bullets
+                company={company}
+                opacity={opacity}
+                setOpacity={setOpacity}
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
