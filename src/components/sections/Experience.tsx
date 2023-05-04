@@ -66,7 +66,7 @@ const Experience: React.FC<ExperienceProps> = () => {
             <div style={{ flex: "2 1 15%" }}></div>
             <div
               style={{
-                flex: "1 1 10%",
+                flex: "1 1 15%",
                 borderLeft: "1px solid white",
                 position: "relative",
               }}
