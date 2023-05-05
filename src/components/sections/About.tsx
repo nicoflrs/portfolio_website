@@ -48,7 +48,7 @@ const About: React.FC = () => {
             paddingTop: "30px",
           }}
         >
-          <div id="aboutme-text" style={{ display: "grid", height: "50%" }}>
+          <div id="aboutme-text" style={{ display: "grid", height: "60%" }}>
             <div style={{ width: "100%", height: "100%" }}>
               <Typography
                 sx={{
@@ -116,6 +116,34 @@ const About: React.FC = () => {
                   }}
                 >
                   • TypeScript
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "white",
+                  }}
+                >
+                  • Docker
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "white",
+                  }}
+                >
+                  • Kubernetes
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "white",
+                  }}
+                >
+                  • Spinnaker
+                </Typography>
+                <Typography
+                  sx={{
+                    color: "white",
+                  }}
+                >
+                  • Google Cloud Platform
                 </Typography>
               </div>
             </div>

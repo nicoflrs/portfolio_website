@@ -1,5 +1,5 @@
 import * as React from "react";
-import { Typography } from "@mui/material";
+import Text from "./Text";
 
 interface CompanyBullets {
   [key: string]: string[];
@@ -55,19 +55,11 @@ const Bullets: React.FC<BulletProps> = ({ company, opacity, setOpacity }) => {
       {companyContainer[company].map((el, idx) => (
         <React.Fragment key={idx}>
           <li>
-            <Typography
-              sx={{
-                color: "white",
-                fontWeight: 700,
-                fontSize: "18px",
-                padding: "0px 0px 0px 8px",
-                lineHeight: 1.3,
-                listStylePosition: "outside",
-                marginRight: "10px",
-              }}
-            >
-              {el}
-            </Typography>
+            <Text
+              string={el}
+              paddingOverride={"0px 0px 0px 8px"}
+              fontOverride={"18px"}
+            />
           </li>
           {idx < arculesBullets.length - 1 && (
             <div style={{ height: "5px" }}></div>
