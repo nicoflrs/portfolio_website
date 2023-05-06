@@ -2,11 +2,15 @@ import * as React from "react";
 import { Typography } from "@mui/material";
 import Text from "../bullets/Text";
 import nexus from "../../assets/nexus.jpg";
+import tradeconfirmed from "../../assets/tradeconfirmed.jpg";
 import github from "../../assets/github.png";
 import link from "../../assets/link.png";
 
 const nexusString =
   "Nexus is a Microsoft VSCode extension that allows developers to visualize and analyze their NextJS code, providing a comprehensive view of their project's structure.";
+
+const tradeConfirmedString =
+  "TradeConfirmed is a web-based trading log app that allows you to document your previous investment transactions.";
 
 const Work: React.FC = () => {
   return (
@@ -119,7 +123,7 @@ const Work: React.FC = () => {
                 height: "12%",
               }}
             >
-              <div style={{ paddingLeft: "25px" }}>
+              <div style={{ paddingLeft: "20px" }}>
                 <a
                   href="https://github.com/oslabs-beta/Nexus"
                   target="_blank"
@@ -140,7 +144,103 @@ const Work: React.FC = () => {
             </div>
           </div>
         </div>
-        <div style={{ flex: 1 }}></div>
+        <div style={{ flex: 1, display: "flex", flexDirection: "row" }}>
+          <div
+            style={{
+              height: "100%",
+              width: "100%",
+              display: "flex",
+              justifyContent: "center",
+              flexDirection: "column",
+              paddingTop: "37px",
+            }}
+          >
+            <div
+              style={{
+                position: "relative",
+                bottom: "135px",
+                width: "0",
+                height: "0",
+              }}
+            >
+              <Text
+                string={"TradeConfirmed"}
+                fontOverride={"30px"}
+                paddingOverride={"0px"}
+              />
+            </div>
+            <div
+              style={{
+                backgroundColor: "hsla(180, 1%, 29%, 1)",
+                width: "508px",
+                height: "185px",
+                borderRadius: "25px",
+                position: "relative",
+                bottom: "29px",
+                display: "flex",
+                alignItems: "center",
+                zIndex: "1",
+              }}
+            >
+              <Text
+                string={tradeConfirmedString}
+                paddingOverride={"0px 0px 0px 35px"}
+                fontOverride={"23px"}
+              />
+            </div>
+            <div
+              style={{
+                width: "81.5%",
+                display: "flex",
+              }}
+            >
+              <Text
+                string={"React | PostgreSQL | Express | Render"}
+                fontOverride={"20px"}
+                paddingOverride={"0px"}
+              />
+            </div>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "end",
+                width: "81.5%",
+                height: "12%",
+                justifyContent: "flex-end",
+              }}
+            >
+              <div style={{ paddingRight: "25px" }}>
+                <a
+                  href="https://github.com/nicoflrs/TradeConfirmed"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={github}></img>
+                </a>
+              </div>
+              <div style={{ paddingRight: "40px" }}>
+                <a
+                  href="https://tradeconfirmed.onrender.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src={link}></img>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              height: "100%",
+              alignItems: "center",
+              position: "relative",
+              right: "95px",
+            }}
+          >
+            <img src={tradeconfirmed} width={679} height={455}></img>
+          </div>
+        </div>
       </div>
     </div>
   );
