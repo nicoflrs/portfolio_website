@@ -5,6 +5,7 @@ import About from "../components/sections/About";
 import Experience from "../components/sections/Experience";
 import Work from "../components/sections/Work";
 import Contact from "../components/sections/Contact";
+import Signature from "../components/sections/Signature";
 
 const IndexPage: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const IndexPage: React.FC = () => {
       <Experience />
       <Work />
       <Contact />
+      <Signature />
     </Layout>
   );
 };

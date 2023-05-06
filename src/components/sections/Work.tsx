@@ -2,8 +2,8 @@ import * as React from "react";
 import { Typography } from "@mui/material";
 import Text from "../bullets/Text";
 import nexus from "../../assets/nexus.jpg";
-import tradeconfirmed from "../../assets/tradeconfirmed.jpg";
-import github from "../../assets/github.png";
+import tradeConfirmed from "../../assets/tradeConfirmed.jpg";
+import githubWork from "../../assets/githubWork.png";
 import link from "../../assets/link.png";
 
 const nexusString =
@@ -72,7 +72,7 @@ const Work: React.FC = () => {
               style={{
                 position: "relative",
                 bottom: "138px",
-                left: "330px",
+                left: "323px",
                 width: "0",
                 height: "0",
               }}
@@ -129,7 +129,7 @@ const Work: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src={github}></img>
+                  <img src={githubWork}></img>
                 </a>
               </div>
               <div style={{ paddingLeft: "25px" }}>
@@ -215,12 +215,12 @@ const Work: React.FC = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src={github}></img>
+                  <img src={githubWork}></img>
                 </a>
               </div>
               <div style={{ paddingRight: "40px" }}>
                 <a
-                  href="https://tradeconfirmed.onrender.com/"
+                  href="https://tradeConfirmed.onrender.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -238,7 +238,7 @@ const Work: React.FC = () => {
               right: "95px",
             }}
           >
-            <img src={tradeconfirmed} width={679} height={455}></img>
+            <img src={tradeConfirmed} width={679} height={455}></img>
           </div>
         </div>
       </div>
