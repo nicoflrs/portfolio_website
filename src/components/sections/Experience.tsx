@@ -11,6 +11,10 @@ const Experience: React.FC<ExperienceProps> = () => {
   const [top, setTop] = useState("12px");
   const [opacity, setOpacity] = useState(0);
   const [company, setCompany] = useState("Arcules");
+  const [positionTitle, setPositionTitle] = useState(
+    "Software Engineer @ Arcules"
+  );
+  const [positionLength, setPositionLength] = useState("2022 - Present");
 
   return (
     <div
@@ -51,6 +55,43 @@ const Experience: React.FC<ExperienceProps> = () => {
         </div>
         <div
           style={{
+            width: "100%",
+            height: "65px",
+            paddingTop: "10px",
+            position: "relative",
+            left: "165px",
+            display: "flex",
+            justifyContent: "center",
+            flexDirection: "column",
+          }}
+        >
+          <Typography
+            sx={{
+              color: "white",
+              fontSize: "24px",
+              fontWeight: "700",
+              opacity: opacity,
+              transition:
+                opacity && opacity > 0 ? "opacity 0.2s ease-in-out" : "none",
+            }}
+          >
+            {positionTitle}
+          </Typography>
+          <Typography
+            sx={{
+              color: "white",
+              fontSize: "16px",
+              fontWeight: "700",
+              opacity: opacity,
+              transition:
+                opacity && opacity > 0 ? "opacity 0.2s ease-in-out" : "none",
+            }}
+          >
+            {positionLength}
+          </Typography>
+        </div>
+        <div
+          style={{
             height: "50%",
             width: "100%",
             display: "grid",
@@ -63,12 +104,12 @@ const Experience: React.FC<ExperienceProps> = () => {
               flexDirection: "column",
             }}
           >
-            <div style={{ flex: "2 1 15%" }}></div>
             <div
               style={{
                 flex: "1 1 15%",
                 borderLeft: "1px solid white",
                 position: "relative",
+                top: "33px",
               }}
             >
               <div
@@ -98,6 +139,8 @@ const Experience: React.FC<ExperienceProps> = () => {
                   setOpacity(0);
                   setTop("12px");
                   setCompany("Arcules");
+                  setPositionTitle("Software Engineer @ Arcules");
+                  setPositionLength("July 2022 - Present");
                 }}
               >
                 Arcules
@@ -118,11 +161,14 @@ const Experience: React.FC<ExperienceProps> = () => {
                   setOpacity(0);
                   setTop("62px");
                   setCompany("PennyMac");
+                  setPositionTitle("Data Analyst @ PennyMac");
+                  setPositionLength("2020 - 2022");
                 }}
               >
                 PennyMac
               </Typography>
             </div>
+            <div style={{ flex: "2 1 15%" }}></div>
             <div style={{ flex: "2 1 10%" }}></div>
           </div>
           <div
@@ -130,13 +176,15 @@ const Experience: React.FC<ExperienceProps> = () => {
               display: "flex",
               justifyContent: "center",
               alignItems: "center",
+              paddingTop: "10px",
+              paddingRight: "25px",
             }}
           >
             <div
               style={{
-                backgroundColor: "hsla(180, 1%, 29%, 1)",
                 width: "585px",
                 borderRadius: "25px",
+                height: "100%",
               }}
             >
               <Bullets
