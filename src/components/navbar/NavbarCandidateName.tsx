@@ -14,7 +14,7 @@ const NavbarCandidateName: React.FC = () => (
       fontSize: "24px",
     }}
   >
-    {CANDIDATE_NAME}
+    <a href={`#top`}>{CANDIDATE_NAME}</a>
   </Typography>
 );
 
