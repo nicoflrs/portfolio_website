@@ -140,7 +140,7 @@ const Experience: React.FC<ExperienceProps> = () => {
                   setTop("12px");
                   setCompany("Arcules");
                   setPositionTitle("Software Engineer @ Arcules");
-                  setPositionLength("July 2022 - Present");
+                  setPositionLength("2022 - Present");
                 }}
               >
                 Arcules
