@@ -7,10 +7,10 @@ import githubWork from "../../assets/githubWork.png";
 import link from "../../assets/link.png";
 
 const nexusString =
-  "Nexus is a Microsoft VSCode extension that allows developers to visualize and analyze their NextJS code, providing a comprehensive view of their project's structure.";
+  "Nexus is a Microsoft VSCode extension that allows developers to visualize their NextJS code, providing a comprehensive view of their project's structure";
 
 const tradeConfirmedString =
-  "TradeConfirmed is a web-based trading log app that allows you to document your previous investment transactions.";
+  "TradeConfirmed is a web-based trading log app that allows you to document your previous investment transactions";
 
 const Work: React.FC = () => {
   return (

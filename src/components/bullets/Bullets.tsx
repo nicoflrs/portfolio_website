@@ -12,26 +12,22 @@ interface BulletProps {
 }
 
 const arculesBulletFirst =
-  "Unblocked a major customer by extending the capabilities of the frontend XML parsing logic, allowing the backend to send strings that let the frontend know what settings of a video device need to be enabled or disabled on the application";
+  "Delivered and styled interactive web applications throughout the product using React and Material UI";
 const arculesBulletSecond =
-  "Developed a kiosk software tool that displays live surveillance streams while preventing user interaction outside of the scope of expected execution; used HTTP cookies to ensure redirects back into kiosk software unless user intentionally opts out";
-const arculesBulletThird = "";
+  "Collaborated with designers, product managers, and other engineers to transform concepts in the ideation phase into production realities for both customers and stakeholders";
+const arculesBulletThird =
+  "Contributed extensively to the creation of Forensic Video Search, an AI motion and object detection tool that allows users to search through vast amounts of recorded video";
 const arculesBullets = [
   arculesBulletFirst,
   arculesBulletSecond,
-  // arculesBulletThird,
+  arculesBulletThird,
 ];
 
 const pennymacBulletFirst =
-  "Utilized MSSQL to develop and automate reporting processes that contributed to the management of the credit risk transfer (CRT) loan portfolio, recovering more than $100M in unpaid principal balance during the height of the COVID-19 pandemic";
+  "Developed and automated KPI metric reporting for multiple divisions throughout the company using MSSQL and SSRS";
 const pennymacBulletSecond =
-  "Worked with Microsoft Office to manage executive level reporting, deliver KPI metrics, and create complex forecasting models";
-const pennymacBulletThird = "";
-const pennymacBullets = [
-  pennymacBulletFirst,
-  pennymacBulletSecond,
-  // pennymacBulletThird,
-];
+  "Worked with Microsoft Office to manage executive level reporting and create complex forecasting models";
+const pennymacBullets = [pennymacBulletFirst, pennymacBulletSecond];
 
 const Bullets: React.FC<BulletProps> = ({ company, opacity, setOpacity }) => {
   const companyContainer: CompanyBullets = {

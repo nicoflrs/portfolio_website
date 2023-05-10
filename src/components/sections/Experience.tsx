@@ -11,8 +11,10 @@ const Experience: React.FC<ExperienceProps> = () => {
   const [top, setTop] = useState("12px");
   const [opacity, setOpacity] = useState(0);
   const [company, setCompany] = useState("Arcules");
-  const [positionTitle, setPositionTitle] = useState(
-    "Software Engineer @ Arcules"
+  const [positionTitle, setPositionTitle] = useState("Software Engineer");
+  const [positionCompany, setPositionCompany] = useState("@ Arcules");
+  const [positionWebsite, setPositionWebsite] = useState(
+    "https://arcules.com/"
   );
   const [positionLength, setPositionLength] = useState("2022 - Present");
 
@@ -65,18 +67,40 @@ const Experience: React.FC<ExperienceProps> = () => {
             flexDirection: "column",
           }}
         >
-          <Typography
-            sx={{
-              color: "white",
-              fontSize: "24px",
-              fontWeight: "700",
-              opacity: opacity,
-              transition:
-                opacity && opacity > 0 ? "opacity 0.2s ease-in-out" : "none",
-            }}
-          >
-            {positionTitle}
-          </Typography>
+          <div style={{ display: "flex" }}>
+            <Typography
+              sx={{
+                color: "white",
+                fontSize: "24px",
+                fontWeight: "700",
+                opacity: opacity,
+                transition:
+                  opacity && opacity > 0 ? "opacity 0.2s ease-in-out" : "none",
+              }}
+            >
+              {positionTitle}
+            </Typography>
+            <Typography
+              sx={{
+                paddingLeft: "7px",
+                color: "white",
+                fontSize: "24px",
+                fontWeight: "700",
+                opacity: opacity,
+                transition:
+                  opacity && opacity > 0 ? "opacity 0.2s ease-in-out" : "none",
+              }}
+            >
+              <a
+                href={positionWebsite}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: "rgb(127,255,212)" }}
+              >
+                {positionCompany}
+              </a>
+            </Typography>
+          </div>
           <Typography
             sx={{
               color: "white",
@@ -139,8 +163,10 @@ const Experience: React.FC<ExperienceProps> = () => {
                   setOpacity(0);
                   setTop("12px");
                   setCompany("Arcules");
-                  setPositionTitle("Software Engineer @ Arcules");
+                  setPositionTitle("Software Engineer");
+                  setPositionCompany("@ Arcules");
                   setPositionLength("2022 - Present");
+                  setPositionWebsite("https://arcules.com/");
                 }}
               >
                 Arcules
@@ -161,8 +187,10 @@ const Experience: React.FC<ExperienceProps> = () => {
                   setOpacity(0);
                   setTop("62px");
                   setCompany("PennyMac");
-                  setPositionTitle("Data Analyst @ PennyMac");
+                  setPositionTitle("Data Analyst");
+                  setPositionCompany("@ PennyMac");
                   setPositionLength("2020 - 2022");
+                  setPositionWebsite("https://www.pennymac.com/");
                 }}
               >
                 PennyMac
