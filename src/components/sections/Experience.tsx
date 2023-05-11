@@ -3,6 +3,117 @@ import { useState } from "react";
 import { Typography } from "@mui/material";
 import Bullets from "../bullets/Bullets";
 
+const styles = {
+  experience: {
+    height: "850px",
+    color: "red",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+  whereWorked: {
+    height: "75%",
+    width: "750px",
+  },
+  heading: {
+    top: "0",
+    color: "white",
+    fontWeight: 700,
+    fontSize: "30px",
+    paddingRight: "15px",
+  },
+  companyLink: {
+    color: "rgb(127,255,212)",
+  },
+  jobItem: {
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+  },
+  divider: {
+    borderBottom: "1px solid white",
+    flex: 1,
+  },
+  jobList: {
+    height: "50%",
+    width: "100%",
+    display: "grid",
+    gridTemplateColumns: "1fr 2fr",
+  },
+  jobDescription: {
+    display: "flex",
+    flexDirection: "column",
+  },
+  jobSubitemLarge: {
+    flex: "2 1 15%",
+  },
+  jobSubitemSmall: {
+    flex: "2 1 10%",
+  },
+  jobTitleContainer: {
+    width: "100%",
+    height: "65px",
+    paddingTop: "10px",
+    position: "relative",
+    left: "165px",
+    display: "flex",
+    justifyContent: "center",
+    flexDirection: "column",
+  },
+  jobTitleText: {
+    display: "flex",
+  },
+  bulletContainer: {
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    paddingTop: "10px",
+    paddingRight: "25px",
+  },
+  bulletWrapper: {
+    width: "585px",
+    borderRadius: "25px",
+    height: "100%",
+  },
+  container: {
+    flex: "1 1 15%",
+    borderLeft: "1px solid white",
+    position: "relative",
+    top: "33px",
+  },
+  dot: {
+    width: "12px",
+    height: "12px",
+    position: "absolute",
+    backgroundColor: "white",
+    left: "-6px",
+    top: top,
+    transition: "top 0.5s",
+  },
+  company: {
+    color: "white",
+    height: "50%",
+    display: "flex",
+    justifyContent: "left",
+    alignItems: "flex-start",
+    marginLeft: "20px",
+    fontWeight: 700,
+    fontSize: "24px",
+    cursor: "pointer",
+  },
+  position: {
+    color: "white",
+    height: "50%",
+    display: "flex",
+    justifyContent: "left",
+    alignItems: "flex-end",
+    marginLeft: "20px",
+    fontWeight: 700,
+    fontSize: "24px",
+    cursor: "pointer",
+  },
+};
+
 interface ExperienceProps {
   company: string;
 }
@@ -19,55 +130,14 @@ const Experience: React.FC<ExperienceProps> = () => {
   const [positionLength, setPositionLength] = useState("2022 - Present");
 
   return (
-    <div
-      id="experience"
-      style={{
-        height: "850px",
-        color: "red",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
-      <div
-        style={{
-          height: "75%",
-          width: "750px",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          <Typography
-            sx={{
-              top: "0",
-              color: "white",
-              fontWeight: 700,
-              fontSize: "30px",
-              paddingRight: "15px",
-            }}
-          >
-            Where I've Worked
-          </Typography>
-          <div style={{ borderBottom: "1px solid white", flex: 1 }}></div>
+    <div id="experience" style={styles.experience}>
+      <div style={styles.whereWorked}>
+        <div style={styles.jobItem}>
+          <Typography sx={styles.heading}>Where I've Worked</Typography>
+          <div style={styles.divider}></div>
         </div>
-        <div
-          style={{
-            width: "100%",
-            height: "65px",
-            paddingTop: "10px",
-            position: "relative",
-            left: "165px",
-            display: "flex",
-            justifyContent: "center",
-            flexDirection: "column",
-          }}
-        >
-          <div style={{ display: "flex" }}>
+        <div style={styles.jobTitleContainer}>
+          <div style={styles.jobTitleText}>
             <Typography
               sx={{
                 color: "white",
@@ -95,7 +165,7 @@ const Experience: React.FC<ExperienceProps> = () => {
                 href={positionWebsite}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={{ color: "rgb(127,255,212)" }}
+                style={styles.companyLink}
               >
                 {positionCompany}
               </a>
@@ -114,28 +184,9 @@ const Experience: React.FC<ExperienceProps> = () => {
             {positionLength}
           </Typography>
         </div>
-        <div
-          style={{
-            height: "50%",
-            width: "100%",
-            display: "grid",
-            gridTemplateColumns: "1fr 2fr",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-            }}
-          >
-            <div
-              style={{
-                flex: "1 1 15%",
-                borderLeft: "1px solid white",
-                position: "relative",
-                top: "33px",
-              }}
-            >
+        <div style={styles.jobList}>
+          <div style={styles.jobDescription}>
+            <div style={styles.container}>
               <div
                 style={{
                   width: "12px",
@@ -148,17 +199,7 @@ const Experience: React.FC<ExperienceProps> = () => {
                 }}
               ></div>
               <Typography
-                sx={{
-                  color: "white",
-                  height: "50%",
-                  display: "flex",
-                  justifyContent: "left",
-                  alignItems: "flex-start",
-                  marginLeft: "20px",
-                  fontWeight: 700,
-                  fontSize: "24px",
-                  cursor: "pointer",
-                }}
+                sx={styles.company}
                 onClick={() => {
                   setOpacity(0);
                   setTop("12px");
@@ -172,17 +213,7 @@ const Experience: React.FC<ExperienceProps> = () => {
                 Arcules
               </Typography>
               <Typography
-                sx={{
-                  color: "white",
-                  height: "50%",
-                  display: "flex",
-                  justifyContent: "left",
-                  alignItems: "flex-end",
-                  marginLeft: "20px",
-                  fontWeight: 700,
-                  fontSize: "24px",
-                  cursor: "pointer",
-                }}
+                sx={styles.position}
                 onClick={() => {
                   setOpacity(0);
                   setTop("62px");
@@ -196,25 +227,11 @@ const Experience: React.FC<ExperienceProps> = () => {
                 PennyMac
               </Typography>
             </div>
-            <div style={{ flex: "2 1 15%" }}></div>
-            <div style={{ flex: "2 1 10%" }}></div>
+            <div style={styles.jobSubitemLarge}></div>
+            <div style={styles.jobSubitemSmall}></div>
           </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              paddingTop: "10px",
-              paddingRight: "25px",
-            }}
-          >
-            <div
-              style={{
-                width: "585px",
-                borderRadius: "25px",
-                height: "100%",
-              }}
-            >
+          <div style={styles.bulletContainer}>
+            <div style={styles.bulletWrapper}>
               <Bullets
                 company={company}
                 opacity={opacity}
