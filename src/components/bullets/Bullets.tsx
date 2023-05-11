@@ -1,6 +1,10 @@
 import * as React from "react";
 import Text from "./Text";
 
+const styles = {
+  bullet: { height: "5px" },
+};
+
 interface CompanyBullets {
   [key: string]: string[];
 }
@@ -57,9 +61,7 @@ const Bullets: React.FC<BulletProps> = ({ company, opacity, setOpacity }) => {
               fontOverride={"18px"}
             />
           </li>
-          {idx < arculesBullets.length - 1 && (
-            <div style={{ height: "5px" }}></div>
-          )}
+          {idx < arculesBullets.length - 1 && <div style={styles.bullet}></div>}
         </React.Fragment>
       ))}
     </ul>

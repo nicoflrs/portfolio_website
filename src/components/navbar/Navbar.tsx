@@ -5,6 +5,17 @@ import NavbarCandidateName from "./NavbarCandidateName";
 import NavbarHeaderOption from "./NavbarHeaderOption";
 import { ABOUT, EXPERIENCE, WORK, CONTACT } from "../../constants/navbarNames";
 
+const styles = {
+  box: { width: "100%", display: "flex", justifyContent: "space-between" },
+  name: {
+    height: "100%",
+    color: "white",
+    display: "flex",
+    alignItems: "center",
+    paddingRight: "30px",
+  },
+};
+
 const Navbar: React.FC = () => {
   const headerOptions = [ABOUT, EXPERIENCE, WORK, CONTACT];
   const [isHidden, setIsHidden] = useState(false);
@@ -49,19 +60,9 @@ const Navbar: React.FC = () => {
         zIndex: 100000000,
       }}
     >
-      <Box
-        sx={{ width: "100%", display: "flex", justifyContent: "space-between" }}
-      >
+      <Box sx={styles.box}>
         <NavbarCandidateName />
-        <div
-          style={{
-            height: "100%",
-            color: "white",
-            display: "flex",
-            alignItems: "center",
-            paddingRight: "30px",
-          }}
-        >
+        <div style={styles.name}>
           {headerOptions.map((el) => (
             <NavbarHeaderOption headerOption={el} key={el} />
           ))}
