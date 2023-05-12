@@ -1,7 +1,12 @@
-import { Typography } from "@mui/material";
-import * as React from "react";
+import {
+  Typography,
+  WithStyles,
+  createStyles,
+  withStyles,
+} from "@material-ui/core";
+import React from "react";
 
-const styles = {
+const styles = createStyles({
   location: {
     display: "flex",
     justifyContent: "flex-end",
@@ -13,17 +18,19 @@ const styles = {
     fontWeight: 400,
     fontSize: "20px",
   },
-};
+});
 
-const Signature: React.FC = () => {
+interface Props extends WithStyles<typeof styles> {}
+
+const Signature: React.FC<Props> = ({ classes }) => {
   return (
-    <div style={styles.location}>
+    <div className={classes.location}>
       <a
         href="https://github.com/nicoflrs/portfolio_website"
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Typography sx={styles.design}>
+        <Typography className={classes.design}>
           Designed and built by Nico Flores
         </Typography>
       </a>
@@ -31,4 +38,4 @@ const Signature: React.FC = () => {
   );
 };
 
-export default Signature;
+export default withStyles(styles)(Signature);
