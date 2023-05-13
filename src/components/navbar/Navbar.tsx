@@ -3,7 +3,12 @@ import { useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import NavbarCandidateName from "./NavbarCandidateName";
 import NavbarHeaderOption from "./NavbarHeaderOption";
-import { ABOUT, EXPERIENCE, WORK, CONTACT } from "../../constants/navbarNames";
+import {
+  ABOUT,
+  EXPERIENCE,
+  WORK,
+  CONTACT,
+} from "../../constants/navbarStrings";
 
 const styles = {
   box: { width: "100%", display: "flex", justifyContent: "space-between" },

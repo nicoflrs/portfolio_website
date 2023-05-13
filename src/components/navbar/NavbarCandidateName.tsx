@@ -1,6 +1,6 @@
 import * as React from "react";
 import { Typography } from "@mui/material";
-import { CANDIDATE_NAME } from "../../constants/navbarNames";
+import { CANDIDATE_NAME } from "../../constants/navbarStrings";
 
 const styles = {
   name: {

@@ -1,8 +1,26 @@
 import * as React from "react";
-import { Typography } from "@mui/material";
+import {
+  Typography,
+  WithStyles,
+  createStyles,
+  withStyles,
+} from "@material-ui/core";
 import profile from "../../assets/profile.jpg";
+import {
+  BACKGROUND,
+  CURRENT_WORK,
+  TECHNOLOGY_HEADER,
+  JAVASCRIPT,
+  NODEJS,
+  REACT,
+  TYPESCRIPT,
+  DOCKER,
+  KUBERNETES,
+  SPINNAKER,
+  GOOGLE_CLOUD_PLATFORM,
+} from "../../constants/aboutStrings";
 
-const styles = {
+const styles = createStyles({
   root: {
     height: "850px",
     color: "red",
@@ -63,53 +81,52 @@ const styles = {
     justifyContent: "flex-end",
     paddingLeft: "15px",
   },
-};
+});
 
-const About: React.FC = () => (
-  <div id="about" style={styles.root}>
-    <div style={styles.container}>
-      <div style={styles.header}>
-        <Typography sx={styles.heading}>About Me</Typography>
-        <div style={styles.divider}></div>
+const technologies = [
+  JAVASCRIPT,
+  NODEJS,
+  REACT,
+  TYPESCRIPT,
+  DOCKER,
+  KUBERNETES,
+  SPINNAKER,
+  GOOGLE_CLOUD_PLATFORM,
+];
+
+interface Props extends WithStyles<typeof styles> {}
+
+const About: React.FC<Props> = ({ classes }) => (
+  <div id="about" className={classes.root}>
+    <div className={classes.container}>
+      <div className={classes.header}>
+        <Typography className={classes.heading}>About Me</Typography>
+        <div className={classes.divider}></div>
       </div>
-      <div style={styles.content}>
-        <div id="aboutme-text" style={styles.text}>
-          <div style={styles.textItem}>
-            <Typography sx={styles.techItem}>
-              My name is Nico Flores, a front end developer based in Los
-              Angeles, CA. I enjoy creating beautiful and powerful tools and
-              experiences that others can enjoy. I'm passionate about
-              cutting-edge technology, optimization, and intuitive UX.
-            </Typography>
+      <div className={classes.content}>
+        <div id="aboutme-text" className={classes.text}>
+          <div className={classes.textItem}>
+            <Typography className={classes.techItem}>{BACKGROUND}</Typography>
           </div>
-          <div style={styles.textItemWithPadding}>
-            <Typography sx={styles.techItem}>
-              Currently, I am working on the Product team at Arcules. My main
-              focus these days is building a unique digital experience for our
-              various clients.
-            </Typography>
+          <div className={classes.textItemWithPadding}>
+            <Typography className={classes.techItem}>{CURRENT_WORK}</Typography>
           </div>
-          <div style={styles.textItemWithPadding}>
+          <div className={classes.textItemWithPadding}>
             <div>
-              <Typography sx={styles.techItem}>
-                Technologies I work with:
+              <Typography className={classes.techItem}>
+                {TECHNOLOGY_HEADER}
               </Typography>
             </div>
-            <div style={styles.techList}>
-              <Typography sx={styles.techItem}>• JavaScript (ES6+)</Typography>
-              <Typography sx={styles.techItem}>• NodeJS</Typography>
-              <Typography sx={styles.techItem}>• React</Typography>
-              <Typography sx={styles.techItem}>• TypeScript</Typography>
-              <Typography sx={styles.techItem}>• Docker</Typography>
-              <Typography sx={styles.techItem}>• Kubernetes</Typography>
-              <Typography sx={styles.techItem}>• Spinnaker</Typography>
-              <Typography sx={styles.techItem}>
-                • Google Cloud Platform
-              </Typography>
+            <div className={classes.techList}>
+              {technologies.map((tech, idx) => (
+                <Typography className={classes.techItem} key={idx}>
+                  {tech}
+                </Typography>
+              ))}
             </div>
           </div>
         </div>
-        <div id="aboutme-img" style={styles.imgContainer}>
+        <div id="aboutme-img" className={classes.imgContainer}>
           <img src={profile} width={300} height={300}></img>
         </div>
       </div>
@@ -117,4 +134,4 @@ const About: React.FC = () => (
   </div>
 );
 
-export default About;
+export default withStyles(styles)(About);

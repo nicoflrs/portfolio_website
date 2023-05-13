@@ -5,6 +5,7 @@ import {
   withStyles,
 } from "@material-ui/core";
 import React from "react";
+import { SIGNATURE } from "../../constants/signatureStrings";
 
 const styles = createStyles({
   location: {
@@ -30,9 +31,7 @@ const Signature: React.FC<Props> = ({ classes }) => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Typography className={classes.design}>
-          Designed and built by Nico Flores
-        </Typography>
+        <Typography className={classes.design}>{SIGNATURE}</Typography>
       </a>
     </div>
   );
