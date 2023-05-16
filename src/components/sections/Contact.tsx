@@ -1,10 +1,19 @@
-import { Typography } from "@mui/material";
+import {
+  Typography,
+  createStyles,
+  withStyles,
+  WithStyles,
+} from "@material-ui/core";
 import * as React from "react";
 import linkedin from "../../assets/linkedin.png";
 import gmail from "../../assets/gmail.png";
 import githubContact from "../../assets/githubContact.png";
+import {
+  LETS_CONNECT,
+  CONTACT_DESCRIPTION,
+} from "../../constants/contactStrings";
 
-const styles = {
+const styles = createStyles({
   contact: {
     height: "850px",
     color: "red",
@@ -16,11 +25,11 @@ const styles = {
   heading: {
     color: "white",
     fontSize: "70px",
-    fontWeight: "700",
+    fontWeight: 700,
   },
   paragraph: {
     color: "white",
-    fontWeight: "700",
+    fontWeight: 700,
     fontSize: "25px",
     textAlign: "center",
     width: "761px",
@@ -39,17 +48,15 @@ const styles = {
     paddingLeft: "64px",
     paddingRight: "64px",
   },
-};
+});
 
-const Contact: React.FC = () => (
-  <div id="contact" style={styles.contact}>
-    <Typography sx={styles.heading}>Let's Connect!</Typography>
-    <Typography sx={styles.paragraph}>
-      While I am not currently looking for any opportunities, I am always open
-      to chat. Whether you have a question or just want to say hello, please
-      feel free to reach out to me at any time!
-    </Typography>
-    <div style={styles.links}>
+interface Props extends WithStyles<typeof styles> {}
+
+const Contact: React.FC<Props> = ({ classes }) => (
+  <div id="contact" className={classes.contact}>
+    <Typography className={classes.heading}>{LETS_CONNECT}</Typography>
+    <Typography className={classes.paragraph}>{CONTACT_DESCRIPTION}</Typography>
+    <div className={classes.links}>
       <div>
         <a
           href="https://github.com/nicoflrs"
@@ -59,7 +66,7 @@ const Contact: React.FC = () => (
           <img src={githubContact}></img>
         </a>
       </div>
-      <div style={styles.iconContainer}>
+      <div className={classes.iconContainer}>
         <a
           href="mailto:floresni1996@gmail.com"
           target="_blank"
@@ -81,4 +88,4 @@ const Contact: React.FC = () => (
   </div>
 );
 
-export default Contact;
+export default withStyles(styles)(Contact);
