@@ -1,9 +1,19 @@
 import * as React from "react";
 import { useState } from "react";
-import { Typography } from "@mui/material";
+import {
+  Typography,
+  createStyles,
+  withStyles,
+  WithStyles,
+} from "@material-ui/core";
 import Bullets from "../bullets/Bullets";
+import {
+  WHERE_WORKED,
+  ARCULES,
+  PENNYMAC,
+} from "../../constants/experienceStrings";
 
-const styles = {
+const styles = createStyles({
   experience: {
     height: "850px",
     color: "red",
@@ -24,6 +34,9 @@ const styles = {
   },
   companyLink: {
     color: "rgb(127,255,212)",
+    "&::visited": {
+      color: "rgb(127,255,212)",
+    },
   },
   jobItem: {
     display: "flex",
@@ -81,15 +94,6 @@ const styles = {
     position: "relative",
     top: "33px",
   },
-  dot: {
-    width: "12px",
-    height: "12px",
-    position: "absolute",
-    backgroundColor: "white",
-    left: "-6px",
-    top: top,
-    transition: "top 0.5s",
-  },
   company: {
     color: "white",
     height: "50%",
@@ -112,13 +116,36 @@ const styles = {
     fontSize: "24px",
     cursor: "pointer",
   },
-};
+  positionTitleText: {
+    color: "white",
+    fontSize: "24px",
+    fontWeight: 700,
+  },
+  positionCompanyText: {
+    paddingLeft: "7px",
+    fontSize: "24px",
+    fontWeight: 700,
+  },
+  positionLengthText: {
+    color: "white",
+    fontSize: "16px",
+    fontWeight: 700,
+  },
+  dial: {
+    width: "12px",
+    height: "12px",
+    position: "absolute",
+    backgroundColor: "white",
+    left: "-6px",
+    transition: "top 0.5s",
+  },
+});
 
-interface ExperienceProps {
+interface ExperienceProps extends WithStyles<typeof styles> {
   company: string;
 }
 
-const Experience: React.FC<ExperienceProps> = () => {
+const Experience: React.FC<ExperienceProps> = ({ classes }) => {
   const [top, setTop] = useState("12px");
   const [opacity, setOpacity] = useState(0);
   const [company, setCompany] = useState("Arcules");
@@ -129,109 +156,109 @@ const Experience: React.FC<ExperienceProps> = () => {
   );
   const [positionLength, setPositionLength] = useState("2022 - Present");
 
+  const opacityChange = {
+    opacity: opacity,
+    transition: opacity && opacity > 0 ? "opacity 0.2s ease-in-out" : "none",
+  };
+
+  const topChange = { top: top };
+
+  const shiftRole = (
+    opacity: number,
+    top: string,
+    company: string,
+    positionTitle: string,
+    positionCompany: string,
+    positionLength: string,
+    positionWebsite: string
+  ) => {
+    setOpacity(opacity);
+    setTop(top);
+    setCompany(company);
+    setPositionTitle(positionTitle);
+    setPositionCompany(positionCompany);
+    setPositionLength(positionLength);
+    setPositionWebsite(positionWebsite);
+  };
+
   return (
-    <div id="experience" style={styles.experience}>
-      <div style={styles.whereWorked}>
-        <div style={styles.jobItem}>
-          <Typography sx={styles.heading}>Where I've Worked</Typography>
-          <div style={styles.divider}></div>
+    <div id="experience" className={classes.experience}>
+      <div className={classes.whereWorked}>
+        <div className={classes.jobItem}>
+          <Typography className={classes.heading}>{WHERE_WORKED}</Typography>
+          <div className={classes.divider}></div>
         </div>
-        <div style={styles.jobTitleContainer}>
-          <div style={styles.jobTitleText}>
+        <div className={classes.jobTitleContainer}>
+          <div className={classes.jobTitleText}>
             <Typography
-              sx={{
-                color: "white",
-                fontSize: "24px",
-                fontWeight: "700",
-                opacity: opacity,
-                transition:
-                  opacity && opacity > 0 ? "opacity 0.2s ease-in-out" : "none",
-              }}
+              className={classes.positionTitleText}
+              style={opacityChange}
             >
               {positionTitle}
             </Typography>
             <Typography
-              sx={{
-                paddingLeft: "7px",
-                color: "white",
-                fontSize: "24px",
-                fontWeight: "700",
-                opacity: opacity,
-                transition:
-                  opacity && opacity > 0 ? "opacity 0.2s ease-in-out" : "none",
-              }}
+              className={classes.positionCompanyText}
+              style={opacityChange}
             >
               <a
                 href={positionWebsite}
                 target="_blank"
                 rel="noopener noreferrer"
-                style={styles.companyLink}
+                className={classes.companyLink}
               >
                 {positionCompany}
               </a>
             </Typography>
           </div>
           <Typography
-            sx={{
-              color: "white",
-              fontSize: "16px",
-              fontWeight: "700",
-              opacity: opacity,
-              transition:
-                opacity && opacity > 0 ? "opacity 0.2s ease-in-out" : "none",
-            }}
+            className={classes.positionLengthText}
+            style={opacityChange}
           >
             {positionLength}
           </Typography>
         </div>
-        <div style={styles.jobList}>
-          <div style={styles.jobDescription}>
-            <div style={styles.container}>
-              <div
-                style={{
-                  width: "12px",
-                  height: "12px",
-                  position: "absolute",
-                  backgroundColor: "white",
-                  left: "-6px",
-                  top: top,
-                  transition: "top 0.5s",
-                }}
-              ></div>
+        <div className={classes.jobList}>
+          <div className={classes.jobDescription}>
+            <div className={classes.container}>
+              <div className={classes.dial} style={topChange}></div>
               <Typography
-                sx={styles.company}
+                className={classes.company}
                 onClick={() => {
-                  setOpacity(0);
-                  setTop("12px");
-                  setCompany("Arcules");
-                  setPositionTitle("Software Engineer");
-                  setPositionCompany("@ Arcules");
-                  setPositionLength("2022 - Present");
-                  setPositionWebsite("https://arcules.com/");
+                  shiftRole(
+                    0,
+                    "12px",
+                    "Arcules",
+                    "Software Engineer",
+                    "@ Arcules",
+                    "2022 - Present",
+                    "https://arcules.com/"
+                  );
                 }}
               >
-                Arcules
+                {ARCULES}
               </Typography>
               <Typography
-                sx={styles.position}
+                className={classes.position}
                 onClick={() => {
-                  setOpacity(0);
-                  setTop("62px");
-                  setCompany("PennyMac");
-                  setPositionTitle("Data Analyst");
-                  setPositionCompany("@ PennyMac");
-                  setPositionLength("2020 - 2022");
-                  setPositionWebsite("https://www.pennymac.com/");
+                  shiftRole(
+                    0,
+                    "62px",
+                    "PennyMac",
+                    "Data Analyst",
+                    "@ PennyMac",
+                    "2020 - 2022",
+                    "https://www.pennymac.com/"
+                  );
                 }}
               >
-                PennyMac
+                {PENNYMAC}
               </Typography>
             </div>
-            <div style={styles.jobSubitemLarge}></div>
-            <div style={styles.jobSubitemSmall}></div>
+            <div className={classes.jobSubitemLarge}></div>
+            <div className={classes.jobSubitemSmall}></div>
           </div>
-          <div style={styles.bulletContainer}>
-            <div style={styles.bulletWrapper}>
+          <div className={classes.bulletContainer}>
+            <div className={classes.bulletWrapper}>
               <Bullets
                 company={company}
                 opacity={opacity}
@@ -245,4 +272,4 @@ const Experience: React.FC<ExperienceProps> = () => {
   );
 };
 
-export default Experience;
+export default withStyles(styles)(Experience);
