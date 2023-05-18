@@ -11,6 +11,7 @@ import {
   WHERE_WORKED,
   ARCULES,
   PENNYMAC,
+  companyDirectory,
 } from "../../constants/experienceStrings";
 
 const styles = createStyles({
@@ -146,15 +147,9 @@ interface ExperienceProps extends WithStyles<typeof styles> {
 }
 
 const Experience: React.FC<ExperienceProps> = ({ classes }) => {
+  const [company, setCompany] = useState("Arcules");
   const [top, setTop] = useState("12px");
   const [opacity, setOpacity] = useState(0);
-  const [company, setCompany] = useState("Arcules");
-  const [positionTitle, setPositionTitle] = useState("Software Engineer");
-  const [positionCompany, setPositionCompany] = useState("@ Arcules");
-  const [positionWebsite, setPositionWebsite] = useState(
-    "https://arcules.com/"
-  );
-  const [positionLength, setPositionLength] = useState("2022 - Present");
 
   const opacityChange = {
     opacity: opacity,
@@ -162,24 +157,6 @@ const Experience: React.FC<ExperienceProps> = ({ classes }) => {
   };
 
   const topChange = { top: top };
-
-  const shiftRole = (
-    opacity: number,
-    top: string,
-    company: string,
-    positionTitle: string,
-    positionCompany: string,
-    positionLength: string,
-    positionWebsite: string
-  ) => {
-    setOpacity(opacity);
-    setTop(top);
-    setCompany(company);
-    setPositionTitle(positionTitle);
-    setPositionCompany(positionCompany);
-    setPositionLength(positionLength);
-    setPositionWebsite(positionWebsite);
-  };
 
   return (
     <div id="experience" className={classes.experience}>
@@ -194,19 +171,19 @@ const Experience: React.FC<ExperienceProps> = ({ classes }) => {
               className={classes.positionTitleText}
               style={opacityChange}
             >
-              {positionTitle}
+              {companyDirectory[company].positionTitle}
             </Typography>
             <Typography
               className={classes.positionCompanyText}
               style={opacityChange}
             >
               <a
-                href={positionWebsite}
+                href={companyDirectory[company].positionWebsite}
                 target="_blank"
                 rel="noopener noreferrer"
                 className={classes.companyLink}
               >
-                {positionCompany}
+                @ {company}
               </a>
             </Typography>
           </div>
@@ -214,7 +191,7 @@ const Experience: React.FC<ExperienceProps> = ({ classes }) => {
             className={classes.positionLengthText}
             style={opacityChange}
           >
-            {positionLength}
+            {companyDirectory[company].positionLength}
           </Typography>
         </div>
         <div className={classes.jobList}>
@@ -224,15 +201,9 @@ const Experience: React.FC<ExperienceProps> = ({ classes }) => {
               <Typography
                 className={classes.company}
                 onClick={() => {
-                  shiftRole(
-                    0,
-                    "12px",
-                    "Arcules",
-                    "Software Engineer",
-                    "@ Arcules",
-                    "2022 - Present",
-                    "https://arcules.com/"
-                  );
+                  setCompany("Arcules");
+                  setTop("12px");
+                  setOpacity(0);
                 }}
               >
                 {ARCULES}
@@ -240,15 +211,9 @@ const Experience: React.FC<ExperienceProps> = ({ classes }) => {
               <Typography
                 className={classes.position}
                 onClick={() => {
-                  shiftRole(
-                    0,
-                    "62px",
-                    "PennyMac",
-                    "Data Analyst",
-                    "@ PennyMac",
-                    "2020 - 2022",
-                    "https://www.pennymac.com/"
-                  );
+                  setCompany("PennyMac");
+                  setTop("62px");
+                  setOpacity(0);
                 }}
               >
                 {PENNYMAC}
