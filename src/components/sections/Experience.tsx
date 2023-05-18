@@ -147,7 +147,7 @@ interface ExperienceProps extends WithStyles<typeof styles> {
 }
 
 const Experience: React.FC<ExperienceProps> = ({ classes }) => {
-  const [company, setCompany] = useState("Arcules");
+  const [company, setCompany] = useState(ARCULES);
   const [top, setTop] = useState("12px");
   const [opacity, setOpacity] = useState(0);
 
@@ -201,7 +201,7 @@ const Experience: React.FC<ExperienceProps> = ({ classes }) => {
               <Typography
                 className={classes.company}
                 onClick={() => {
-                  setCompany("Arcules");
+                  setCompany(ARCULES);
                   setTop("12px");
                   setOpacity(0);
                 }}
@@ -211,7 +211,7 @@ const Experience: React.FC<ExperienceProps> = ({ classes }) => {
               <Typography
                 className={classes.position}
                 onClick={() => {
-                  setCompany("PennyMac");
+                  setCompany(PENNYMAC);
                   setTop("62px");
                   setOpacity(0);
                 }}
