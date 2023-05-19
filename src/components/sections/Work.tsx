@@ -1,18 +1,26 @@
 import * as React from "react";
-import { Typography } from "@mui/material";
+import {
+  Typography,
+  createStyles,
+  withStyles,
+  WithStyles,
+} from "@material-ui/core";
 import Text from "../bullets/Text";
 import nexus from "../../assets/nexus.jpg";
 import tradeConfirmed from "../../assets/tradeConfirmed.jpg";
 import githubWork from "../../assets/githubWork.png";
 import link from "../../assets/link.png";
+import {
+  PROJECTS,
+  NEXUS,
+  NEXUS_DESCRIPTION,
+  NEXUS_TECH,
+  TRADECONFIRMED,
+  TRADECONFIRMED_DESCRIPTION,
+  TRADECONFIRMED_TECH,
+} from "../../constants/workStrings";
 
-const nexusString =
-  "Nexus is a Microsoft VSCode extension that allows developers to visualize their NextJS code, providing a comprehensive view of their project's structure";
-
-const tradeConfirmedString =
-  "TradeConfirmed is a web-based trading log app that allows you to document your previous investment transactions";
-
-const styles = {
+const styles = createStyles({
   workContainer: {
     height: "1400px",
     color: "red",
@@ -144,44 +152,46 @@ const styles = {
     position: "relative",
     right: "95px",
   },
-};
+});
 
-const Work: React.FC = () => {
+interface WorkProps extends WithStyles<typeof styles> {}
+
+const Work: React.FC<WorkProps> = ({ classes }) => {
   return (
-    <div id="work" style={styles.workContainer}>
-      <div style={styles.workContentContainer}>
-        <div style={styles.headingContainer}>
-          <Typography sx={styles.heading}>Projects</Typography>
-          <div style={styles.headingDivider}></div>
+    <div id="work" className={classes.workContainer}>
+      <div className={classes.workContentContainer}>
+        <div className={classes.headingContainer}>
+          <Typography className={classes.heading}>{PROJECTS}</Typography>
+          <div className={classes.headingDivider}></div>
         </div>
-        <div style={styles.projectRowContainer}>
-          <div style={styles.imageColumn}>
+        <div className={classes.projectRowContainer}>
+          <div className={classes.imageColumn}>
             <img src={nexus} width={679} height={455}></img>
           </div>
-          <div style={styles.projectColumn}>
-            <div style={styles.titleContainer}>
+          <div className={classes.projectColumn}>
+            <div className={classes.titleContainer}>
               <Text
-                string={"Nexus"}
+                string={NEXUS}
                 fontOverride={"30px"}
                 paddingOverride={"0px"}
               />
             </div>
-            <div style={styles.projectDescriptionContainer}>
+            <div className={classes.projectDescriptionContainer}>
               <Text
-                string={nexusString}
+                string={NEXUS_DESCRIPTION}
                 paddingOverride={"0px 0px 0px 35px"}
                 fontOverride={"23px"}
               />
             </div>
-            <div style={styles.techContainer}>
+            <div className={classes.techContainer}>
               <Text
-                string={"VS Code | TypeScript | Webpack | Acorn"}
+                string={NEXUS_TECH}
                 fontOverride={"20px"}
                 paddingOverride={"0px"}
               />
             </div>
-            <div style={styles.linkContainer}>
-              <div style={styles.link}>
+            <div className={classes.linkContainer}>
+              <div className={classes.link}>
                 <a
                   href="https://github.com/oslabs-beta/Nexus"
                   target="_blank"
@@ -190,7 +200,7 @@ const Work: React.FC = () => {
                   <img src={githubWork}></img>
                 </a>
               </div>
-              <div style={styles.externalLink}>
+              <div className={classes.externalLink}>
                 <a
                   href="https://nexus-js.com/"
                   target="_blank"
@@ -202,31 +212,31 @@ const Work: React.FC = () => {
             </div>
           </div>
         </div>
-        <div style={styles.projectRowContainer}>
-          <div style={styles.projectColumn}>
-            <div style={styles.textContainer}>
+        <div className={classes.projectRowContainer}>
+          <div className={classes.projectColumn}>
+            <div className={classes.textContainer}>
               <Text
-                string={"TradeConfirmed"}
+                string={TRADECONFIRMED}
                 fontOverride={"30px"}
                 paddingOverride={"0px"}
               />
             </div>
-            <div style={styles.textBlob}>
+            <div className={classes.textBlob}>
               <Text
-                string={tradeConfirmedString}
+                string={TRADECONFIRMED_DESCRIPTION}
                 paddingOverride={"0px 0px 0px 35px"}
                 fontOverride={"23px"}
               />
             </div>
-            <div style={styles.technologies}>
+            <div className={classes.technologies}>
               <Text
-                string={"React | PostgreSQL | Express | Render"}
+                string={TRADECONFIRMED_TECH}
                 fontOverride={"20px"}
                 paddingOverride={"0px"}
               />
             </div>
-            <div style={styles.tradeConfirmedLinkContainer}>
-              <div style={styles.tradeConfirmedGithub}>
+            <div className={classes.tradeConfirmedLinkContainer}>
+              <div className={classes.tradeConfirmedGithub}>
                 <a
                   href="https://github.com/nicoflrs/TradeConfirmed"
                   target="_blank"
@@ -235,7 +245,7 @@ const Work: React.FC = () => {
                   <img src={githubWork}></img>
                 </a>
               </div>
-              <div style={styles.tradeConfirmedLink}>
+              <div className={classes.tradeConfirmedLink}>
                 <a
                   href="https://tradeConfirmed.onrender.com/"
                   target="_blank"
@@ -246,7 +256,7 @@ const Work: React.FC = () => {
               </div>
             </div>
           </div>
-          <div style={styles.tradeConfirmedImage}>
+          <div className={classes.tradeConfirmedImage}>
             <img src={tradeConfirmed} width={679} height={455}></img>
           </div>
         </div>
@@ -255,4 +265,4 @@ const Work: React.FC = () => {
   );
 };
 
-export default Work;
+export default withStyles(styles)(Work);
