@@ -1,42 +1,45 @@
 import * as React from "react";
+import { WithStyles, createStyles, withStyles } from "@material-ui/core";
 import Text from "./Text";
+import {
+  arculesBulletFirst,
+  arculesBulletSecond,
+  arculesBulletThird,
+  pennymacBulletFirst,
+  pennymacBulletSecond,
+} from "../../constants/bulletStrings";
 
-const styles = {
+const styles = createStyles({
   bullet: { height: "5px" },
-};
+  list: {
+    color: "white",
+  },
+});
 
 interface CompanyBullets {
   [key: string]: string[];
 }
 
-interface BulletProps {
+interface BulletProps extends WithStyles<typeof styles> {
   company: keyof CompanyBullets;
   opacity?: number;
   setOpacity: Function;
 }
 
-const arculesBulletFirst =
-  "Delivered and styled interactive web applications throughout the product using React and Material UI";
-const arculesBulletSecond =
-  "Collaborated with designers, product managers, and other engineers to transform concepts in the ideation phase into production realities for both customers and stakeholders";
-const arculesBulletThird =
-  "Contributed extensively to the creation of Forensic Video Search, an AI motion and object detection tool that allows users to search through vast amounts of recorded video";
-const arculesBullets = [
-  arculesBulletFirst,
-  arculesBulletSecond,
-  arculesBulletThird,
-];
-
-const pennymacBulletFirst =
-  "Developed and automated KPI metric reporting for multiple divisions throughout the company using MSSQL and SSRS";
-const pennymacBulletSecond =
-  "Worked with Microsoft Office to manage executive level reporting and create complex forecasting models";
-const pennymacBullets = [pennymacBulletFirst, pennymacBulletSecond];
-
-const Bullets: React.FC<BulletProps> = ({ company, opacity, setOpacity }) => {
+const Bullets: React.FC<BulletProps> = ({
+  classes,
+  company,
+  opacity,
+  setOpacity,
+}) => {
   const companyContainer: CompanyBullets = {
-    Arcules: arculesBullets,
-    PennyMac: pennymacBullets,
+    Arcules: [arculesBulletFirst, arculesBulletSecond, arculesBulletThird],
+    PennyMac: [pennymacBulletFirst, pennymacBulletSecond],
+  };
+
+  const bulletEffects = {
+    opacity: opacity,
+    transition: opacity && opacity > 0 ? "opacity 0.2s ease-in-out" : "none",
   };
 
   setTimeout(() => {
@@ -44,14 +47,7 @@ const Bullets: React.FC<BulletProps> = ({ company, opacity, setOpacity }) => {
   }, 200);
 
   return (
-    <ul
-      style={{
-        color: "white",
-        opacity: opacity,
-        transition:
-          opacity && opacity > 0 ? "opacity 0.2s ease-in-out" : "none",
-      }}
-    >
+    <ul style={bulletEffects} className={classes.list}>
       {companyContainer[company].map((el, idx) => (
         <React.Fragment key={idx}>
           <li>
@@ -61,11 +57,13 @@ const Bullets: React.FC<BulletProps> = ({ company, opacity, setOpacity }) => {
               fontOverride={"18px"}
             />
           </li>
-          {idx < arculesBullets.length - 1 && <div style={styles.bullet}></div>}
+          {idx < companyContainer[company].length - 1 && (
+            <div className={classes.bullet}></div>
+          )}
         </React.Fragment>
       ))}
     </ul>
   );
 };
 
-export default Bullets;
+export default withStyles(styles)(Bullets);
