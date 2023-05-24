@@ -15,7 +15,7 @@ const styles = createStyles({
     paddingBottom: "25px",
   },
   design: {
-    color: "white",
+    color: "rgb(127,255,212)",
     fontWeight: 400,
     fontSize: "20px",
   },
