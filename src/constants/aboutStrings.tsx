@@ -1,5 +1,5 @@
 export const BACKGROUND =
-  "My name is Nico Flores, a front end developer based in Los Angeles, CA. I enjoy creating beautiful and powerful tools and experiences that others can enjoy. I'm passionate about cutting-edge technology, optimization, and intuitive UX.";
+  "My name is Nico Flores, a front end developer based in Irvine, CA. I enjoy creating beautiful and powerful tools and experiences that others can enjoy. I'm passionate about cutting-edge technology, optimization, and intuitive UX.";
 export const CURRENT_WORK =
   "Currently, I am working on the Product team at Arcules. My main focus these days is building a unique digital experience for our various clients.";
 export const TECHNOLOGY_HEADER = "Technologies I work with:";
