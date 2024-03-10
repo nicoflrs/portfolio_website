@@ -63,6 +63,7 @@ const Navbar: React.FC = () => {
         opacity: opacity,
         backgroundColor: backgroundColor,
         zIndex: 100000000,
+        width: "100vw",
       }}
     >
       <Box sx={styles.box}>
