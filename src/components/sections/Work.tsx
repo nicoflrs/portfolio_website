@@ -202,7 +202,7 @@ const Work: React.FC<WorkProps> = ({ classes }) => {
               </div>
               <div className={classes.externalLink}>
                 <a
-                  href="https://nexus-js.com/"
+                  href="https://marketplace.visualstudio.com/items?itemName=Nexus-tree.nexus-extension"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
