@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-import { Box } from "@mui/material";
+import { Box, IconButton, Button, Menu, MenuItem } from "@mui/material";
 import NavbarCandidateName from "./NavbarCandidateName";
 import NavbarHeaderOption from "./NavbarHeaderOption";
 import {
@@ -9,6 +9,7 @@ import {
   WORK,
   CONTACT,
 } from "../../constants/navbarStrings";
+import MenuIcon from "@mui/icons-material/Menu";
 
 const styles = {
   box: { width: "100%", display: "flex", justifyContent: "space-between" },
@@ -19,6 +20,7 @@ const styles = {
     alignItems: "center",
     paddingRight: "30px",
   },
+  menu: { zIndex: 100000001 },
 };
 
 const Navbar: React.FC = () => {
@@ -28,6 +30,20 @@ const Navbar: React.FC = () => {
   const [opacity, setOpacity] = useState(1);
   const [backgroundColor, setBackgroundColor] = useState("inherit");
   const [boxShadow, setBoxShadow] = useState("0px 0px");
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 750);
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 750);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,6 +66,14 @@ const Navbar: React.FC = () => {
     };
   }, [prevScrollPos]);
 
+  const handleClick = (e: { currentTarget: React.SetStateAction<null> }) => {
+    setAnchorEl(e.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
   return (
     <div
       style={{
@@ -69,9 +93,31 @@ const Navbar: React.FC = () => {
       <Box sx={styles.box}>
         <NavbarCandidateName />
         <div style={styles.name}>
-          {headerOptions.map((el) => (
-            <NavbarHeaderOption headerOption={el} key={el} />
-          ))}
+          {isMobile ? (
+            <>
+              <IconButton color="inherit">
+                <MenuIcon onClick={handleClick} />
+              </IconButton>
+              <Menu
+                sx={styles.menu}
+                anchorEl={anchorEl}
+                open={Boolean(anchorEl)}
+                onClose={handleClose}
+              >
+                {headerOptions.map((el) => (
+                  <a href={`#${el.toLowerCase()}`} style={{ color: "black" }}>
+                    <MenuItem key={el} onClick={handleClose}>
+                      {el}
+                    </MenuItem>
+                  </a>
+                ))}
+              </Menu>
+            </>
+          ) : (
+            headerOptions.map((el) => (
+              <NavbarHeaderOption headerOption={el} key={el} />
+            ))
+          )}
         </div>
       </Box>
     </div>
