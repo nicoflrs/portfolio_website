@@ -27,13 +27,13 @@ const styles = createStyles({
     fontWeight: 700,
     display: "flex",
     justifyContent: "center",
+    textAlign: "center",
   },
   paragraph: {
     color: "white",
     fontWeight: 700,
     fontSize: "25px",
     textAlign: "center",
-    width: "761px",
     paddingTop: "21px",
     lineHeight: "29px",
   },
@@ -50,7 +50,7 @@ const styles = createStyles({
     paddingRight: "64px",
   },
   contactContainer: {
-    width: "750px",
+    width: "80%",
   },
 });
 
@@ -84,7 +84,7 @@ const Contact: React.FC<Props> = ({ classes }) => (
         </div>
         <div>
           <a
-            href="https://www.linkedin.com/in/nicolasaflores/"
+            href="https://www.linkedin.com/in/nicoflrs/"
             target="_blank"
             rel="noopener noreferrer"
           >
