@@ -29,10 +29,13 @@ const styles = createStyles({
     justifyContent: "center",
   },
   workContentContainer: {
-    width: "1100px",
+    width: "75vw",
     height: "85%",
     display: "flex",
     flexDirection: "column",
+    "@media (min-width: 1100px)": {
+      width: "1100px",
+    },
   },
   headingContainer: {
     display: "flex",
@@ -54,11 +57,22 @@ const styles = createStyles({
     flex: 1,
     display: "flex",
     flexDirection: "row",
+    "@media (max-width: 1100px)": {
+      justifyContent: "center",
+    },
   },
   imageColumn: {
     display: "flex",
     height: "100%",
     alignItems: "center",
+    "@media (max-width: 1100px)": {
+      width: "100%",
+      display: "flex",
+      alignItems: " center",
+      position: "relative",
+      height: "40vh",
+      overflow: "hidden",
+    },
   },
   projectColumn: {
     height: "100%",
@@ -67,6 +81,9 @@ const styles = createStyles({
     justifyContent: "center",
     flexDirection: "column",
     paddingTop: "37px",
+    "@media (max-width: 1100px)": {
+      display: "none",
+    },
   },
   titleContainer: {
     position: "relative",
@@ -151,6 +168,30 @@ const styles = createStyles({
     alignItems: "center",
     position: "relative",
     right: "95px",
+    "@media (max-width: 1100px)": {
+      position: "relative",
+      width: "100%",
+      display: "flex",
+      alignItems: " center",
+      height: "40vh",
+      overflow: "hidden",
+      right: "0",
+    },
+  },
+  imageOverlay: {
+    "@media (max-width: 1100px)": {
+      backgroundColor: "#494A4A",
+      opacity: "85%",
+      width: "100%",
+      height: "40vh",
+      position: "absolute",
+    },
+  },
+  nexusImg: {
+    "@media (min-width: 1100px)": {
+      width: 679,
+      height: 455,
+    },
   },
 });
 
@@ -166,7 +207,8 @@ const Work: React.FC<WorkProps> = ({ classes }) => {
         </div>
         <div className={classes.projectRowContainer}>
           <div className={classes.imageColumn}>
-            <img src={nexus} width={679} height={455}></img>
+            <div className={classes.imageOverlay}></div>
+            <img src={nexus} className={classes.nexusImg}></img>
           </div>
           <div className={classes.projectColumn}>
             <div className={classes.titleContainer}>
@@ -257,7 +299,8 @@ const Work: React.FC<WorkProps> = ({ classes }) => {
             </div>
           </div>
           <div className={classes.tradeConfirmedImage}>
-            <img src={tradeConfirmed} width={679} height={455}></img>
+            <div className={classes.imageOverlay}></div>
+            <img src={tradeConfirmed} className={classes.nexusImg}></img>
           </div>
         </div>
       </div>
