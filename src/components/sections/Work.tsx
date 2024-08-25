@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useEffect, useState } from "react";
 import {
   Typography,
   createStyles,
@@ -27,6 +28,9 @@ const styles = createStyles({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    "@media (max-width: 1100px)": {
+      height: "auto",
+    },
   },
   workContentContainer: {
     width: "75vw",
@@ -35,6 +39,9 @@ const styles = createStyles({
     flexDirection: "column",
     "@media (min-width: 1100px)": {
       width: "1100px",
+    },
+    "@media (max-width: 1100px)": {
+      gap: "25px",
     },
   },
   headingContainer: {
@@ -59,6 +66,7 @@ const styles = createStyles({
     flexDirection: "row",
     "@media (max-width: 1100px)": {
       justifyContent: "center",
+      flexDirection: "column",
     },
   },
   imageColumn: {
@@ -70,8 +78,9 @@ const styles = createStyles({
       display: "flex",
       alignItems: " center",
       position: "relative",
-      height: "40vh",
+      minHeight: "456px",
       overflow: "hidden",
+      borderRadius: "10px",
     },
   },
   projectColumn: {
@@ -173,9 +182,10 @@ const styles = createStyles({
       width: "100%",
       display: "flex",
       alignItems: " center",
-      height: "40vh",
+      minHeight: "456px",
       overflow: "hidden",
       right: "0",
+      borderRadius: "10px",
     },
   },
   imageOverlay: {
@@ -183,21 +193,40 @@ const styles = createStyles({
       backgroundColor: "#494A4A",
       opacity: "85%",
       width: "100%",
-      height: "40vh",
-      position: "absolute",
+      zIndex: 1,
+      height: "100%",
     },
   },
   nexusImg: {
     "@media (min-width: 1100px)": {
       width: 679,
       height: 455,
+      overflow: "hidden",
+    },
+  },
+  projectDescriptionOverlayContainer: {
+    "@media (min-width: 1100px)": {
+      display: "none",
     },
   },
 });
 
 interface WorkProps extends WithStyles<typeof styles> {}
-
 const Work: React.FC<WorkProps> = ({ classes }) => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1100);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1100);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
   return (
     <div id="work" className={classes.workContainer}>
       <div className={classes.workContentContainer}>
@@ -207,8 +236,31 @@ const Work: React.FC<WorkProps> = ({ classes }) => {
         </div>
         <div className={classes.projectRowContainer}>
           <div className={classes.imageColumn}>
-            <div className={classes.imageOverlay}></div>
-            <img src={nexus} className={classes.nexusImg}></img>
+            <div className={classes.imageOverlay}>
+              <div className={classes.projectDescriptionOverlayContainer}>
+                <Text
+                  string={NEXUS_DESCRIPTION}
+                  paddingOverride={"0px 0px 0px 35px"}
+                  fontOverride={"23px"}
+                />
+              </div>
+            </div>
+            <img
+              src={nexus}
+              style={
+                isMobile
+                  ? {
+                      "object-fit": "cover",
+                      position: "absolute",
+                      height: "100%",
+                      width: "100%",
+                      right: "0",
+                      top: "0",
+                    }
+                  : {}
+              }
+              className={classes.nexusImg}
+            ></img>
           </div>
           <div className={classes.projectColumn}>
             <div className={classes.titleContainer}>
@@ -299,8 +351,31 @@ const Work: React.FC<WorkProps> = ({ classes }) => {
             </div>
           </div>
           <div className={classes.tradeConfirmedImage}>
-            <div className={classes.imageOverlay}></div>
-            <img src={tradeConfirmed} className={classes.nexusImg}></img>
+            <div className={classes.imageOverlay}>
+              <div className={classes.projectDescriptionOverlayContainer}>
+                <Text
+                  string={TRADECONFIRMED_DESCRIPTION}
+                  paddingOverride={"0px 0px 0px 35px"}
+                  fontOverride={"23px"}
+                />
+              </div>
+            </div>
+            <img
+              src={tradeConfirmed}
+              style={
+                isMobile
+                  ? {
+                      "object-fit": "cover",
+                      position: "absolute",
+                      height: "100%",
+                      width: "100%",
+                      right: "0",
+                      top: "0",
+                    }
+                  : {}
+              }
+              className={classes.nexusImg}
+            ></img>
           </div>
         </div>
       </div>
