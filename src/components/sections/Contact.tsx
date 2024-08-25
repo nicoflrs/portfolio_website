@@ -70,7 +70,7 @@ const Contact: React.FC<Props> = ({ classes }) => (
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={githubContact}></img>
+            <img src={githubContact} width={50} height={50}></img>
           </a>
         </div>
         <div className={classes.iconContainer}>
@@ -79,7 +79,7 @@ const Contact: React.FC<Props> = ({ classes }) => (
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={gmail} width={74} height={74}></img>
+            <img src={gmail} width={50} height={50}></img>
           </a>
         </div>
         <div>
@@ -88,7 +88,7 @@ const Contact: React.FC<Props> = ({ classes }) => (
             target="_blank"
             rel="noopener noreferrer"
           >
-            <img src={linkedin} width={74} height={74}></img>
+            <img src={linkedin} width={50} height={50}></img>
           </a>
         </div>
       </div>

@@ -17,7 +17,7 @@ const styles = createStyles({
   design: {
     color: "rgb(127,255,212)",
     fontWeight: 400,
-    fontSize: "20px",
+    fontSize: "18px",
   },
 });
 
