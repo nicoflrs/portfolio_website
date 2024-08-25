@@ -8,7 +8,7 @@ export const companyDirectory = {
     positionLength: "2022 - Present",
   },
   PennyMac: {
-    positionTitle: "Data Analyst",
+    positionTitle: "Analyst",
     positionWebsite: "https://www.pennymac.com/",
     positionLength: "2020 - 2022",
   },
