@@ -100,6 +100,15 @@ const styles = createStyles({
     left: "323px",
     width: "0",
     height: "0",
+    "@media (max-width: 1100px)": {
+      position: "unset",
+      width: "100%",
+      height: "100%",
+      flex: 1,
+      alignItems: "center",
+      display: "flex",
+      paddingLeft: "20px",
+    },
   },
   projectTitle: {
     fontOverride: "30px",
@@ -115,15 +124,30 @@ const styles = createStyles({
     bottom: "29px",
     display: "flex",
     alignItems: "center",
+    "@media (max-width: 1100px)": {
+      position: "unset",
+      width: "100%",
+      height: "100%",
+      flex: 1,
+      alignItems: "center",
+      display: "flex",
+      paddingLeft: "20px",
+    },
   },
   projectDescription: {
     paddingOverride: "0px 0px 0px 35px",
     fontOverride: "23px",
   },
   techContainer: {
-    width: "81.5%",
+    width: "100%",
     display: "flex",
-    justifyContent: "flex-end",
+    justifyContent: "flex-start",
+    "@media (max-width: 1100px)": {
+      flex: 1,
+      alignItems: "center",
+      display: "flex",
+      paddingLeft: "20px",
+    },
   },
   tech: {
     fontOverride: "20px",
@@ -134,6 +158,11 @@ const styles = createStyles({
     alignItems: "end",
     width: "81.5%",
     height: "12%",
+    "@media (max-width: 1100px)": {
+      flex: 1,
+      alignItems: "center",
+      display: "flex",
+    },
   },
   link: {
     paddingLeft: "20px",
@@ -146,6 +175,15 @@ const styles = createStyles({
     bottom: "135px",
     width: "0",
     height: "0",
+    "@media (max-width: 1100px)": {
+      position: "unset",
+      width: "100%",
+      height: "100%",
+      flex: 1,
+      alignItems: "center",
+      display: "flex",
+      paddingLeft: "20px",
+    },
   },
   textBlob: {
     backgroundColor: "hsla(180, 1%, 29%, 1)",
@@ -157,10 +195,25 @@ const styles = createStyles({
     display: "flex",
     alignItems: "center",
     zIndex: "1",
+    "@media (max-width: 1100px)": {
+      position: "unset",
+      width: "100%",
+      height: "100%",
+      flex: 1,
+      alignItems: "center",
+      display: "flex",
+      paddingLeft: "20px",
+    },
   },
   technologies: {
     width: "81.5%",
     display: "flex",
+    "@media (max-width: 1100px)": {
+      flex: 1,
+      alignItems: "center",
+      display: "flex",
+      paddingLeft: "20px",
+    },
   },
   tradeConfirmedLinkContainer: {
     display: "flex",
@@ -168,6 +221,13 @@ const styles = createStyles({
     width: "81.5%",
     height: "12%",
     justifyContent: "flex-end",
+    "@media (max-width: 1100px)": {
+      flex: 1,
+      alignItems: "center",
+      display: "flex",
+      justifyContent: "unset",
+      paddingLeft: "20px",
+    },
   },
   tradeConfirmedGithub: { paddingRight: "25px" },
   tradeConfirmedLink: { paddingRight: "40px" },
@@ -191,7 +251,7 @@ const styles = createStyles({
   imageOverlay: {
     "@media (max-width: 1100px)": {
       backgroundColor: "#494A4A",
-      opacity: "85%",
+      opacity: "90%",
       width: "100%",
       zIndex: 1,
       height: "100%",
@@ -205,6 +265,12 @@ const styles = createStyles({
     },
   },
   projectDescriptionOverlayContainer: {
+    "@media (max-width: 1100px)": {
+      display: "flex",
+      flexDirection: "column",
+      height: "100%",
+      paddingRight: "20px",
+    },
     "@media (min-width: 1100px)": {
       display: "none",
     },
@@ -238,11 +304,35 @@ const Work: React.FC<WorkProps> = ({ classes }) => {
           <div className={classes.imageColumn}>
             <div className={classes.imageOverlay}>
               <div className={classes.projectDescriptionOverlayContainer}>
-                <Text
-                  string={NEXUS_DESCRIPTION}
-                  paddingOverride={"0px 0px 0px 35px"}
-                  fontOverride={"23px"}
-                />
+                <div className={classes.titleContainer}>
+                  <Text string={NEXUS} fontOverride={"30px"} />
+                </div>
+                <div className={classes.projectDescriptionContainer}>
+                  <Text string={NEXUS_DESCRIPTION} fontOverride={"23px"} />
+                </div>
+                <div className={classes.techContainer}>
+                  <Text string={NEXUS_TECH} fontOverride={"20px"} />
+                </div>
+                <div className={classes.linkContainer}>
+                  <div className={classes.link}>
+                    <a
+                      href="https://github.com/oslabs-beta/Nexus"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img src={githubWork}></img>
+                    </a>
+                  </div>
+                  <div className={classes.externalLink}>
+                    <a
+                      href="https://marketplace.visualstudio.com/items?itemName=Nexus-tree.nexus-extension"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img src={link}></img>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
             <img
@@ -353,11 +443,38 @@ const Work: React.FC<WorkProps> = ({ classes }) => {
           <div className={classes.tradeConfirmedImage}>
             <div className={classes.imageOverlay}>
               <div className={classes.projectDescriptionOverlayContainer}>
-                <Text
-                  string={TRADECONFIRMED_DESCRIPTION}
-                  paddingOverride={"0px 0px 0px 35px"}
-                  fontOverride={"23px"}
-                />
+                <div className={classes.textContainer}>
+                  <Text string={TRADECONFIRMED} fontOverride={"30px"} />
+                </div>
+                <div className={classes.textBlob}>
+                  <Text
+                    string={TRADECONFIRMED_DESCRIPTION}
+                    fontOverride={"23px"}
+                  />
+                </div>
+                <div className={classes.technologies}>
+                  <Text string={TRADECONFIRMED_TECH} fontOverride={"20px"} />
+                </div>
+                <div className={classes.tradeConfirmedLinkContainer}>
+                  <div className={classes.tradeConfirmedGithub}>
+                    <a
+                      href="https://github.com/nicoflrs/TradeConfirmed"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img src={githubWork}></img>
+                    </a>
+                  </div>
+                  <div className={classes.tradeConfirmedLink}>
+                    <a
+                      href="https://tradeConfirmed.onrender.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <img src={link}></img>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
             <img
