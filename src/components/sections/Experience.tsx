@@ -21,10 +21,17 @@ const styles = createStyles({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
+    "@media (max-width: 775px)": {
+      height: "auto",
+    },
   },
   whereWorked: {
     height: "75%",
     width: "750px",
+    "@media (max-width: 775px)": {
+      width: "73vw",
+      height: "100%",
+    },
   },
   heading: {
     top: "0",
@@ -53,10 +60,16 @@ const styles = createStyles({
     width: "100%",
     display: "grid",
     gridTemplateColumns: "1fr 2fr",
+    "@media (max-width: 775px)": {
+      display: "unset",
+    },
   },
   jobDescription: {
     display: "flex",
     flexDirection: "column",
+    "@media (max-width: 775px)": {
+      display: "none",
+    },
   },
   jobSubitemLarge: {
     flex: "2 1 15%",
@@ -73,6 +86,11 @@ const styles = createStyles({
     display: "flex",
     justifyContent: "center",
     flexDirection: "column",
+    "@media (max-width: 775px)": {
+      position: "unset",
+      paddingTop: "0",
+      height: "unset",
+    },
   },
   jobTitleText: {
     display: "flex",
@@ -83,17 +101,28 @@ const styles = createStyles({
     alignItems: "center",
     paddingTop: "10px",
     paddingRight: "25px",
+    "@media (max-width: 775px)": {
+      paddingRight: "0",
+    },
   },
   bulletWrapper: {
     width: "585px",
     borderRadius: "25px",
     height: "100%",
+    "@media (max-width: 775px)": {
+      width: "100%",
+    },
   },
   container: {
     flex: "1 1 15%",
     borderLeft: "1px solid white",
     position: "relative",
     top: "33px",
+  },
+  containerRow: {
+    "@media (max-width: 775px)": {
+      display: "flex",
+    },
   },
   company: {
     color: "white",
@@ -105,6 +134,9 @@ const styles = createStyles({
     fontWeight: 700,
     fontSize: "24px",
     cursor: "pointer",
+    "@media (max-width: 775px)": {
+      marginLeft: "0",
+    },
   },
   position: {
     color: "white",
@@ -116,6 +148,10 @@ const styles = createStyles({
     fontWeight: 700,
     fontSize: "24px",
     cursor: "pointer",
+    "@media (max-width: 775px)": {
+      marginLeft: "0",
+      marginRight: "20px",
+    },
   },
   positionTitleText: {
     color: "white",
@@ -139,6 +175,33 @@ const styles = createStyles({
     backgroundColor: "white",
     left: "-6px",
     transition: "top 0.5s",
+    "@media (max-width: 775px)": {
+      top: "-6px",
+      left: "39px",
+      position: "relative",
+      transition: "left 0.5s",
+    },
+  },
+  jobRow: {
+    display: "flex",
+    padding: "10px 0 10px 0",
+    "@media (min-width: 775px)": {
+      display: "none",
+    },
+  },
+  jobRowBorder: {
+    "@media (max-width: 775px)": {
+      position: "relative",
+      borderBottom: "1px solid white",
+      paddingTop: "10px",
+      width: "230px",
+    },
+  },
+  jobRowContainer: {
+    paddingTop: "10px",
+    "@media (min-width: 775px)": {
+      display: "none",
+    },
   },
 });
 
@@ -149,6 +212,7 @@ interface ExperienceProps extends WithStyles<typeof styles> {
 const Experience: React.FC<ExperienceProps> = ({ classes }) => {
   const [company, setCompany] = useState(ARCULES);
   const [top, setTop] = useState("12px");
+  const [left, setLeft] = useState("39px");
   const [opacity, setOpacity] = useState(0);
 
   const opacityChange = {
@@ -157,6 +221,7 @@ const Experience: React.FC<ExperienceProps> = ({ classes }) => {
   };
 
   const topChange = { top: top };
+  const leftChange = { left: left };
 
   return (
     <div id="experience" className={classes.experience}>
@@ -164,6 +229,32 @@ const Experience: React.FC<ExperienceProps> = ({ classes }) => {
         <div className={classes.jobItem}>
           <Typography className={classes.heading}>{WHERE_WORKED}</Typography>
           <div className={classes.divider}></div>
+        </div>
+        <div className={classes.jobRowContainer}>
+          <div className={classes.jobRowBorder} />
+          <div className={classes.dial} style={leftChange}></div>
+          <div className={classes.jobRow}>
+            <Typography
+              className={classes.position}
+              onClick={() => {
+                setCompany(PENNYMAC);
+                setLeft("39px");
+                setOpacity(0);
+              }}
+            >
+              {PENNYMAC}
+            </Typography>
+            <Typography
+              className={classes.company}
+              onClick={() => {
+                setCompany(ARCULES);
+                setLeft("165px");
+                setOpacity(0);
+              }}
+            >
+              {ARCULES}
+            </Typography>
+          </div>
         </div>
         <div className={classes.jobTitleContainer}>
           <div className={classes.jobTitleText}>
