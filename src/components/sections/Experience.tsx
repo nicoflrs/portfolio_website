@@ -238,6 +238,7 @@ const Experience: React.FC<ExperienceProps> = ({ classes }) => {
               className={classes.position}
               onClick={() => {
                 setCompany(PENNYMAC);
+                setTop("62px");
                 setLeft("39px");
                 setOpacity(0);
               }}
@@ -248,6 +249,7 @@ const Experience: React.FC<ExperienceProps> = ({ classes }) => {
               className={classes.company}
               onClick={() => {
                 setCompany(ARCULES);
+                setTop("12px");
                 setLeft("165px");
                 setOpacity(0);
               }}
@@ -294,6 +296,7 @@ const Experience: React.FC<ExperienceProps> = ({ classes }) => {
                 onClick={() => {
                   setCompany(ARCULES);
                   setTop("12px");
+                  setLeft("165px");
                   setOpacity(0);
                 }}
               >
@@ -304,6 +307,7 @@ const Experience: React.FC<ExperienceProps> = ({ classes }) => {
                 onClick={() => {
                   setCompany(PENNYMAC);
                   setTop("62px");
+                  setLeft("39px");
                   setOpacity(0);
                 }}
               >
