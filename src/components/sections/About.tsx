@@ -31,6 +31,10 @@ const styles = createStyles({
   container: {
     height: "75%",
     width: "750px",
+    "@media (max-width: 775px)": {
+      width: "73vw",
+      height: "auto",
+    },
   },
   header: {
     display: "flex",
@@ -53,6 +57,9 @@ const styles = createStyles({
     height: "100%",
     gridTemplateColumns: "1fr 1fr",
     paddingTop: "30px",
+    "@media (max-width: 775px)": {
+      gridTemplateColumns: "unset",
+    },
   },
   text: {
     display: "grid",
@@ -80,6 +87,11 @@ const styles = createStyles({
     alignItems: "baseline",
     justifyContent: "flex-end",
     paddingLeft: "15px",
+    "@media (max-width: 775px)": {
+      justifyContent: "center",
+      paddingLeft: "0",
+      paddingTop: "15px",
+    },
   },
 });
 
@@ -127,7 +139,7 @@ const About: React.FC<Props> = ({ classes }) => (
           </div>
         </div>
         <div id="aboutme-img" className={classes.imgContainer}>
-          <img src={profile} width={300} height={300}></img>
+          <img src={profile} width={233} height={233}></img>
         </div>
       </div>
     </div>
