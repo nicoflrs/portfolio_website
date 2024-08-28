@@ -340,7 +340,7 @@ const Work: React.FC<WorkProps> = ({ classes }) => {
               style={
                 isMobile
                   ? {
-                      "object-fit": "cover",
+                      objectFit: "cover",
                       position: "absolute",
                       height: "100%",
                       width: "100%",
@@ -482,7 +482,7 @@ const Work: React.FC<WorkProps> = ({ classes }) => {
               style={
                 isMobile
                   ? {
-                      "object-fit": "cover",
+                      objectFit: "cover",
                       position: "absolute",
                       height: "100%",
                       width: "100%",

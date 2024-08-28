@@ -95,8 +95,8 @@ const Navbar: React.FC = () => {
         <div style={styles.name}>
           {isMobile ? (
             <>
-              <IconButton color="inherit">
-                <MenuIcon onClick={handleClick} />
+              <IconButton onClick={handleClick} color="inherit">
+                <MenuIcon />
               </IconButton>
               <Menu
                 sx={styles.menu}
@@ -105,10 +105,12 @@ const Navbar: React.FC = () => {
                 onClose={handleClose}
               >
                 {headerOptions.map((el) => (
-                  <a href={`#${el.toLowerCase()}`} style={{ color: "black" }}>
-                    <MenuItem key={el} onClick={handleClose}>
-                      {el}
-                    </MenuItem>
+                  <a
+                    key={el}
+                    href={`#${el.toLowerCase()}`}
+                    style={{ color: "black" }}
+                  >
+                    <MenuItem onClick={handleClose}>{el}</MenuItem>
                   </a>
                 ))}
               </Menu>
