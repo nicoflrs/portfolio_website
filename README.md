@@ -10,7 +10,7 @@ This portfolio is built to provide an interactive and engaging way to present my
 
 - **Frameworks/Libraries**: React, Gatsby
 - **Languages**: TypeScript
-- **UI Components**: MaterialUI
+- **UI Components**: Material UI
 
 ## 📝 License
 
