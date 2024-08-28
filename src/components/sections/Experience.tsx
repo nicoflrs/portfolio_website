@@ -28,6 +28,7 @@ const styles = createStyles({
   whereWorked: {
     height: "75%",
     width: "750px",
+    paddingTop: "50px",
     "@media (max-width: 775px)": {
       width: "73vw",
       height: "100%",
