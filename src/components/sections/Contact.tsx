@@ -1,9 +1,5 @@
-import {
-  Typography,
-  createStyles,
-  withStyles,
-  WithStyles,
-} from "@material-ui/core";
+import { createStyles, withStyles, WithStyles } from "@mui/styles";
+import { Typography } from "@mui/material";
 import * as React from "react";
 import linkedin from "../../assets/linkedin.png";
 import gmail from "../../assets/gmail.png";

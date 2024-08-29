@@ -1,7 +1,7 @@
 import React from "react";
 import "../styles/layout.css";
 import Navbar from "./navbar/Navbar";
-import { createStyles, withStyles } from "@material-ui/core";
+import { createStyles, withStyles } from "@mui/styles";
 
 interface LayoutProps {
   children: React.ReactNode;

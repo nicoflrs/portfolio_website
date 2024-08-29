@@ -1,11 +1,7 @@
 import * as React from "react";
 import { useState } from "react";
-import {
-  Typography,
-  createStyles,
-  withStyles,
-  WithStyles,
-} from "@material-ui/core";
+import { Typography } from "@mui/material";
+import { createStyles, withStyles, WithStyles } from "@mui/styles";
 import Bullets from "../bullets/Bullets";
 import {
   WHERE_WORKED,

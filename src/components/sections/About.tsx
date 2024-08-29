@@ -1,10 +1,6 @@
 import * as React from "react";
-import {
-  Typography,
-  WithStyles,
-  createStyles,
-  withStyles,
-} from "@material-ui/core";
+import { WithStyles, createStyles, withStyles } from "@mui/styles";
+import { Typography } from "@mui/material";
 import profile from "../../assets/profile.jpg";
 import {
   BACKGROUND,

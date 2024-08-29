@@ -1,11 +1,7 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-import {
-  Typography,
-  createStyles,
-  withStyles,
-  WithStyles,
-} from "@material-ui/core";
+import { Typography } from "@mui/material";
+import { createStyles, withStyles, WithStyles } from "@mui/styles";
 import Text from "../bullets/Text";
 import nexus from "../../assets/nexus.jpg";
 import tradeConfirmed from "../../assets/tradeConfirmed.jpg";

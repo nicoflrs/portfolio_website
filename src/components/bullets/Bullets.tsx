@@ -1,5 +1,5 @@
 import * as React from "react";
-import { WithStyles, createStyles, withStyles } from "@material-ui/core";
+import { WithStyles, createStyles, withStyles } from "@mui/styles";
 import Text from "./Text";
 import {
   arculesBulletFirst,

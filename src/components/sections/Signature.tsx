@@ -1,9 +1,5 @@
-import {
-  Typography,
-  WithStyles,
-  createStyles,
-  withStyles,
-} from "@material-ui/core";
+import { Typography } from "@mui/material";
+import { WithStyles, createStyles, withStyles } from "@mui/styles";
 import React from "react";
 import { SIGNATURE } from "../../constants/signatureStrings";
 
