@@ -24,30 +24,33 @@ const styles = {
 };
 
 const Navbar: React.FC = () => {
+  const isBrowser = typeof window !== "undefined";
   const headerOptions = [ABOUT, EXPERIENCE, WORK, CONTACT];
   const [isHidden, setIsHidden] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [opacity, setOpacity] = useState(1);
   const [backgroundColor, setBackgroundColor] = useState("inherit");
   const [boxShadow, setBoxShadow] = useState("0px 0px");
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 750);
+  const [isMobile, setIsMobile] = useState(
+    isBrowser ? window?.innerWidth < 750 : false
+  );
   const [anchorEl, setAnchorEl] = useState(null);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 750);
+      setIsMobile(window?.innerWidth < 750);
     };
 
-    window.addEventListener("resize", handleResize);
+    window?.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window?.removeEventListener("resize", handleResize);
     };
   }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollPos = window.pageYOffset;
+      const currentScrollPos = window?.pageYOffset;
       const isVisible = prevScrollPos > currentScrollPos;
       !isVisible ? setOpacity(0) : setOpacity(1);
       currentScrollPos === 0
@@ -60,9 +63,9 @@ const Navbar: React.FC = () => {
       setPrevScrollPos(currentScrollPos);
     };
 
-    window.addEventListener("scroll", handleScroll);
+    window?.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window?.removeEventListener("scroll", handleScroll);
     };
   }, [prevScrollPos]);
 

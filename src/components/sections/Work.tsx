@@ -279,17 +279,20 @@ const styles = createStyles({
 
 interface WorkProps extends WithStyles<typeof styles> {}
 const Work: React.FC<WorkProps> = ({ classes }) => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 1100);
+  const isBrowser = typeof window !== "undefined";
+  const [isMobile, setIsMobile] = useState(
+    isBrowser ? window?.innerWidth < 1100 : false
+  );
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth < 1100);
+      setIsMobile(window?.innerWidth < 1100);
     };
 
-    window.addEventListener("resize", handleResize);
+    window?.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window?.removeEventListener("resize", handleResize);
     };
   }, []);
 
