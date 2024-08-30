@@ -34,7 +34,7 @@ const Navbar: React.FC = () => {
   const [isMobile, setIsMobile] = useState(
     isBrowser ? window?.innerWidth < 750 : false
   );
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [anchorEl, setAnchorEl] = useState<HTMLElement | null>(null);
 
   useEffect(() => {
     const handleResize = () => {
@@ -69,8 +69,8 @@ const Navbar: React.FC = () => {
     };
   }, [prevScrollPos]);
 
-  const handleClick = (e: { currentTarget: React.SetStateAction<null> }) => {
-    setAnchorEl(e.currentTarget);
+  const handleClick = (e: React.MouseEvent<Element, MouseEvent>) => {
+    setAnchorEl(e.currentTarget as HTMLElement);
   };
 
   const handleClose = () => {
@@ -98,7 +98,10 @@ const Navbar: React.FC = () => {
         <div style={styles.name}>
           {isMobile ? (
             <>
-              <IconButton onClick={handleClick} color="inherit">
+              <IconButton
+                onClick={(e: React.MouseEvent) => handleClick(e)}
+                color="inherit"
+              >
                 <MenuIcon />
               </IconButton>
               <Menu

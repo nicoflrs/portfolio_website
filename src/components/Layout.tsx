@@ -1,11 +1,13 @@
 import React from "react";
 import "../styles/layout.css";
 import Navbar from "./navbar/Navbar";
-import { createStyles, withStyles } from "@mui/styles";
+import { createStyles, withStyles, WithStyles } from "@mui/styles";
 
 interface LayoutProps {
   children: React.ReactNode;
 }
+
+interface LayoutProps extends WithStyles<typeof styles> {}
 
 const styles = createStyles({
   layout: {

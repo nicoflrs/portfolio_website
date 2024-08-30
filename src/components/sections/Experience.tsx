@@ -30,13 +30,6 @@ const styles = createStyles({
       height: "100%",
     },
   },
-  heading: {
-    top: "0",
-    color: "white",
-    fontWeight: 700,
-    fontSize: "30px",
-    paddingRight: "15px",
-  },
   companyLink: {
     color: "rgb(127,255,212)",
     "&::visited": {
@@ -116,55 +109,6 @@ const styles = createStyles({
     position: "relative",
     top: "33px",
   },
-  containerRow: {
-    "@media (max-width: 775px)": {
-      display: "flex",
-    },
-  },
-  company: {
-    color: "white",
-    height: "50%",
-    display: "flex",
-    justifyContent: "left",
-    alignItems: "flex-start",
-    marginLeft: "20px",
-    fontWeight: 700,
-    fontSize: "24px",
-    cursor: "pointer",
-    "@media (max-width: 775px)": {
-      marginLeft: "0",
-    },
-  },
-  position: {
-    color: "white",
-    height: "50%",
-    display: "flex",
-    justifyContent: "left",
-    alignItems: "flex-end",
-    marginLeft: "20px",
-    fontWeight: 700,
-    fontSize: "24px",
-    cursor: "pointer",
-    "@media (max-width: 775px)": {
-      marginLeft: "0",
-      marginRight: "20px",
-    },
-  },
-  positionTitleText: {
-    color: "white",
-    fontSize: "24px",
-    fontWeight: 700,
-  },
-  positionCompanyText: {
-    paddingLeft: "7px",
-    fontSize: "24px",
-    fontWeight: 700,
-  },
-  positionLengthText: {
-    color: "white",
-    fontSize: "16px",
-    fontWeight: 700,
-  },
   dial: {
     width: "12px",
     height: "12px",
@@ -203,7 +147,7 @@ const styles = createStyles({
 });
 
 interface ExperienceProps extends WithStyles<typeof styles> {
-  company: string;
+  company?: string;
 }
 
 const Experience: React.FC<ExperienceProps> = ({ classes }) => {
@@ -224,7 +168,17 @@ const Experience: React.FC<ExperienceProps> = ({ classes }) => {
     <div id="experience" className={classes.experience}>
       <div className={classes.whereWorked}>
         <div className={classes.jobItem}>
-          <Typography className={classes.heading}>{WHERE_WORKED}</Typography>
+          <Typography
+            sx={{
+              top: "0",
+              color: "white",
+              fontWeight: 700,
+              fontSize: "30px",
+              paddingRight: "15px",
+            }}
+          >
+            {WHERE_WORKED}
+          </Typography>
           <div className={classes.divider}></div>
         </div>
         <div className={classes.jobRowContainer}>
@@ -232,7 +186,21 @@ const Experience: React.FC<ExperienceProps> = ({ classes }) => {
           <div className={classes.dial} style={leftChange}></div>
           <div className={classes.jobRow}>
             <Typography
-              className={classes.position}
+              sx={{
+                color: "white",
+                height: "50%",
+                display: "flex",
+                justifyContent: "left",
+                alignItems: "flex-end",
+                marginLeft: "20px",
+                fontWeight: 700,
+                fontSize: "24px",
+                cursor: "pointer",
+                "@media (max-width: 775px)": {
+                  marginLeft: "0",
+                  marginRight: "20px",
+                },
+              }}
               onClick={() => {
                 setCompany(PENNYMAC);
                 setTop("62px");
@@ -243,7 +211,20 @@ const Experience: React.FC<ExperienceProps> = ({ classes }) => {
               {PENNYMAC}
             </Typography>
             <Typography
-              className={classes.company}
+              sx={{
+                color: "white",
+                height: "50%",
+                display: "flex",
+                justifyContent: "left",
+                alignItems: "flex-start",
+                marginLeft: "20px",
+                fontWeight: 700,
+                fontSize: "24px",
+                cursor: "pointer",
+                "@media (max-width: 775px)": {
+                  marginLeft: "0",
+                },
+              }}
               onClick={() => {
                 setCompany(ARCULES);
                 setTop("12px");
@@ -258,17 +239,31 @@ const Experience: React.FC<ExperienceProps> = ({ classes }) => {
         <div className={classes.jobTitleContainer}>
           <div className={classes.jobTitleText}>
             <Typography
-              className={classes.positionTitleText}
+              sx={{
+                color: "white",
+                fontSize: "24px",
+                fontWeight: 700,
+              }}
               style={opacityChange}
             >
-              {companyDirectory[company].positionTitle}
+              {
+                companyDirectory[company as keyof typeof companyDirectory]
+                  .positionTitle
+              }
             </Typography>
             <Typography
-              className={classes.positionCompanyText}
+              sx={{
+                paddingLeft: "7px",
+                fontSize: "24px",
+                fontWeight: 700,
+              }}
               style={opacityChange}
             >
               <a
-                href={companyDirectory[company].positionWebsite}
+                href={
+                  companyDirectory[company as keyof typeof companyDirectory]
+                    .positionWebsite
+                }
                 target="_blank"
                 rel="noopener noreferrer"
                 className={classes.companyLink}
@@ -278,10 +273,17 @@ const Experience: React.FC<ExperienceProps> = ({ classes }) => {
             </Typography>
           </div>
           <Typography
-            className={classes.positionLengthText}
+            sx={{
+              color: "white",
+              fontSize: "16px",
+              fontWeight: 700,
+            }}
             style={opacityChange}
           >
-            {companyDirectory[company].positionLength}
+            {
+              companyDirectory[company as keyof typeof companyDirectory]
+                .positionLength
+            }
           </Typography>
         </div>
         <div className={classes.jobList}>
@@ -289,7 +291,20 @@ const Experience: React.FC<ExperienceProps> = ({ classes }) => {
             <div className={classes.container}>
               <div className={classes.dial} style={topChange}></div>
               <Typography
-                className={classes.company}
+                sx={{
+                  color: "white",
+                  height: "50%",
+                  display: "flex",
+                  justifyContent: "left",
+                  alignItems: "flex-start",
+                  marginLeft: "20px",
+                  fontWeight: 700,
+                  fontSize: "24px",
+                  cursor: "pointer",
+                  "@media (max-width: 775px)": {
+                    marginLeft: "0",
+                  },
+                }}
                 onClick={() => {
                   setCompany(ARCULES);
                   setTop("12px");
@@ -300,7 +315,21 @@ const Experience: React.FC<ExperienceProps> = ({ classes }) => {
                 {ARCULES}
               </Typography>
               <Typography
-                className={classes.position}
+                sx={{
+                  color: "white",
+                  height: "50%",
+                  display: "flex",
+                  justifyContent: "left",
+                  alignItems: "flex-end",
+                  marginLeft: "20px",
+                  fontWeight: 700,
+                  fontSize: "24px",
+                  cursor: "pointer",
+                  "@media (max-width: 775px)": {
+                    marginLeft: "0",
+                    marginRight: "20px",
+                  },
+                }}
                 onClick={() => {
                   setCompany(PENNYMAC);
                   setTop("62px");

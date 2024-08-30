@@ -3,8 +3,8 @@ import { Typography } from "@mui/material";
 
 interface BulletPoint {
   string: string;
-  paddingOverride: string;
-  fontOverride: string;
+  paddingOverride?: string;
+  fontOverride?: string;
 }
 
 const Text: React.FC<BulletPoint> = ({

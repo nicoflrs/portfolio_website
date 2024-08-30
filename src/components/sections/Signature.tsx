@@ -10,11 +10,6 @@ const styles = createStyles({
     paddingRight: "20px",
     paddingBottom: "25px",
   },
-  design: {
-    color: "rgb(127,255,212)",
-    fontWeight: 400,
-    fontSize: "18px",
-  },
 });
 
 interface Props extends WithStyles<typeof styles> {}
@@ -27,7 +22,15 @@ const Signature: React.FC<Props> = ({ classes }) => {
         target="_blank"
         rel="noopener noreferrer"
       >
-        <Typography className={classes.design}>{SIGNATURE}</Typography>
+        <Typography
+          sx={{
+            color: "rgb(127,255,212)",
+            fontWeight: 400,
+            fontSize: "18px",
+          }}
+        >
+          {SIGNATURE}
+        </Typography>
       </a>
     </div>
   );

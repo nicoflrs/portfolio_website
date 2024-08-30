@@ -37,13 +37,6 @@ const styles = createStyles({
     alignItems: "center",
     justifyContent: "space-between",
   },
-  heading: {
-    top: "0",
-    color: "white",
-    fontWeight: 700,
-    fontSize: "30px",
-    paddingRight: "15px",
-  },
   divider: {
     borderBottom: "1px solid white",
     flex: 1,
@@ -108,11 +101,21 @@ const About: React.FC<Props> = ({ classes }) => (
   <div id="about" className={classes.root}>
     <div className={classes.container}>
       <div className={classes.header}>
-        <Typography className={classes.heading}>About Me</Typography>
+        <Typography
+          sx={{
+            top: "0",
+            color: "white",
+            fontWeight: 700,
+            fontSize: "30px",
+            paddingRight: "15px",
+          }}
+        >
+          About Me
+        </Typography>
         <div className={classes.divider}></div>
       </div>
       <div className={classes.content}>
-        <div id="aboutme-text" className={classes.text}>
+        <div className={classes.text}>
           <div className={classes.textItem}>
             <Typography className={classes.techItem}>{BACKGROUND}</Typography>
           </div>
@@ -134,7 +137,7 @@ const About: React.FC<Props> = ({ classes }) => (
             </div>
           </div>
         </div>
-        <div id="aboutme-img" className={classes.imgContainer}>
+        <div className={classes.imgContainer}>
           <img src={profile} width={233} height={233}></img>
         </div>
       </div>

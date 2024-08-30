@@ -17,22 +17,6 @@ const styles = createStyles({
     alignItems: "center",
     justifyContent: "center",
   },
-  heading: {
-    color: "white",
-    fontSize: "70px",
-    fontWeight: 700,
-    display: "flex",
-    justifyContent: "center",
-    textAlign: "center",
-  },
-  paragraph: {
-    color: "white",
-    fontWeight: 700,
-    fontSize: "25px",
-    textAlign: "center",
-    paddingTop: "21px",
-    lineHeight: "29px",
-  },
   links: {
     width: "100%",
     height: "50px",
@@ -55,8 +39,28 @@ interface Props extends WithStyles<typeof styles> {}
 const Contact: React.FC<Props> = ({ classes }) => (
   <div id="contact" className={classes.contact}>
     <div className={classes.contactContainer}>
-      <Typography className={classes.heading}>{LETS_CONNECT}</Typography>
-      <Typography className={classes.paragraph}>
+      <Typography
+        sx={{
+          color: "white",
+          fontSize: "70px",
+          fontWeight: 700,
+          display: "flex",
+          justifyContent: "center",
+          textAlign: "center",
+        }}
+      >
+        {LETS_CONNECT}
+      </Typography>
+      <Typography
+        sx={{
+          color: "white",
+          fontWeight: 700,
+          fontSize: "25px",
+          textAlign: "center",
+          paddingTop: "21px",
+          lineHeight: "29px",
+        }}
+      >
         {CONTACT_DESCRIPTION}
       </Typography>
       <div className={classes.links}>

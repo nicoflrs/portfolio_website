@@ -45,13 +45,6 @@ const styles = createStyles({
     alignItems: "center",
     justifyContent: "space-between",
   },
-  heading: {
-    top: "0",
-    color: "white",
-    fontWeight: 700,
-    fontSize: "30px",
-    paddingRight: "15px",
-  },
   headingDivider: {
     borderBottom: "1px solid white",
     flex: 1,
@@ -296,7 +289,17 @@ const Work: React.FC<WorkProps> = ({ classes }) => {
     <div id="work" className={classes.workContainer}>
       <div className={classes.workContentContainer}>
         <div className={classes.headingContainer}>
-          <Typography className={classes.heading}>{PROJECTS}</Typography>
+          <Typography
+            sx={{
+              top: "0",
+              color: "white",
+              fontWeight: 700,
+              fontSize: "30px",
+              paddingRight: "15px",
+            }}
+          >
+            {PROJECTS}
+          </Typography>
           <div className={classes.headingDivider}></div>
         </div>
         <div className={classes.projectRowContainer}>
