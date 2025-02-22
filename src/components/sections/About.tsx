@@ -138,7 +138,12 @@ const About: React.FC<Props> = ({ classes }) => (
           </div>
         </div>
         <div className={classes.imgContainer}>
-          <img src={profile} width={233} height={233}></img>
+          <img
+            src={profile}
+            width={233}
+            height={233}
+            style={{ borderRadius: "8px" }}
+          ></img>
         </div>
       </div>
     </div>
