@@ -1,6 +1,6 @@
 import * as React from "react";
 import { useEffect, useState } from "react";
-import { Box, IconButton, Button, Menu, MenuItem } from "@mui/material";
+import { Box, IconButton, Fade, Menu, MenuItem } from "@mui/material";
 import NavbarCandidateName from "./NavbarCandidateName";
 import NavbarHeaderOption from "./NavbarHeaderOption";
 import {
@@ -28,7 +28,6 @@ const Navbar: React.FC = () => {
   const headerOptions = [ABOUT, EXPERIENCE, WORK, CONTACT];
   const [isHidden, setIsHidden] = useState(false);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
-  const [opacity, setOpacity] = useState(1);
   const [backgroundColor, setBackgroundColor] = useState("inherit");
   const [boxShadow, setBoxShadow] = useState("0px 0px");
   const [isMobile, setIsMobile] = useState(
@@ -52,13 +51,13 @@ const Navbar: React.FC = () => {
     const handleScroll = () => {
       const currentScrollPos = window?.pageYOffset;
       const isVisible = prevScrollPos > currentScrollPos;
-      !isVisible ? setOpacity(0) : setOpacity(1);
-      currentScrollPos === 0
-        ? setBackgroundColor("inherit")
-        : setBackgroundColor("#0F1E40");
-      currentScrollPos === 0
-        ? setBoxShadow("0px 0px")
-        : setBoxShadow("0px 15px 30px -30px");
+      if (currentScrollPos === 0) {
+        setBackgroundColor("inherit");
+        setBoxShadow("0px 0px");
+      } else {
+        setBackgroundColor("#0F1E40");
+        setBoxShadow("0px 15px 30px -30px");
+      }
       setIsHidden(!isVisible);
       setPrevScrollPos(currentScrollPos);
     };
@@ -78,20 +77,19 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <div
+    <Fade
+      in={!isHidden || prevScrollPos === 0}
       style={{
         height: "100px",
         position: "sticky",
         top: 0,
         display: "flex",
-        visibility: isHidden ? "hidden" : "visible",
-        boxShadow: boxShadow,
-        transition: "0.5s ease-in-out",
-        opacity: opacity,
-        backgroundColor: backgroundColor,
+        boxShadow,
+        backgroundColor,
         zIndex: 100000000,
         width: "100vw",
       }}
+      timeout={500}
     >
       <Box sx={styles.box}>
         <NavbarCandidateName />
@@ -128,7 +126,7 @@ const Navbar: React.FC = () => {
           )}
         </div>
       </Box>
-    </div>
+    </Fade>
   );
 };
 
